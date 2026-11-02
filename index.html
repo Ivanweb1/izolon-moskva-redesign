@@ -22,23 +22,20 @@
     </a>
 
     <div class="header__contacts">
-      <a class="hcontact hcontact--mail" href="mailto:zakaz@izolon-moskva.ru">
-        <span class="hcontact__main">zakaz@izolon-moskva.ru</span>
-        <span class="hcontact__sub">отвечаем на все письма</span>
+      <a class="hphone" href="tel:+74991366263">
+        <span class="hphone__num">+7 (499) 136-62-63</span>
+        <span class="hphone__sub">с 9:00 до 18:00 мск</span>
       </a>
-      <a class="hcontact" href="tel:+74991366263">
-        <span class="hcontact__main hcontact__main--phone">+7 (499) 136-62-63</span>
-        <span class="hcontact__sub">с 9:00 до 18:00 мск</span>
-      </a>
-      <a class="pill pill--dark" href="#callback">Заказать звонок</a>
+      <a class="pill pill--line" href="#callback">Заказать звонок</a>
     </div>
 
     <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
   </div>
 
-  <div class="header__nav">
+  <!-- Меню по бургеру на всех экранах: шапка — только логотип, телефон и одна кнопка -->
+  <div class="drawer">
     <div class="container">
-      <nav class="nav" aria-label="Основное меню">
+      <nav class="drawer__nav" aria-label="Меню">
         <a href="#usage">Применение</a>
         <a href="#catalog">Каталог продукции</a>
         <a href="#benefits">Преимущества</a>
@@ -46,10 +43,10 @@
         <a href="#discount">Получить скидку</a>
         <a href="#contacts">Контакты</a>
       </nav>
-      <div class="nav__contacts">
+      <div class="drawer__contacts">
         <a href="tel:+74991366263">+7 (499) 136-62-63 <span>с 9:00 до 18:00 мск</span></a>
         <a href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru <span>отвечаем на все письма</span></a>
-        <a class="pill pill--dark" href="#callback">Заказать звонок</a>
+        <a class="pill pill--line" href="#callback">Заказать звонок</a>
       </div>
     </div>
   </div>
@@ -57,40 +54,46 @@
 
 <main>
   <section class="hero">
-    <div class="container hero__top">
-      <h1 class="hero__title">Утеплитель нового поколения <span>от&nbsp;100&nbsp;руб. за&nbsp;м²</span></h1>
-
-      <div class="hero__card">
-        <div>
-          <p class="hero__eyebrow">Получите в течение 1 часа</p>
-          <p class="hero__text">Розница от рулона и опт. Весь спектр <b>ИЗОЛОН, ИЗОФОМ, ЭВА</b> в наличии!</p>
-        </div>
-        <div class="hero__actions">
-          <a class="pill pill--dark pill--lg" href="#order">Оформить заказ</a>
-          <a class="hero__link" href="#catalog">Каталог продукции
-            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 5v7H5"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Слайдер: assets/hero-1.jpg … hero-4.jpg (3:2, промпты в PHOTO-PROMPT.md).
-         Слайды без файла пропускаются; если нет hero-1.jpg, первым идёт assets/hero.jpg. -->
-    <figure class="hero__media">
-      <div class="slider" aria-roledescription="carousel" aria-label="Фото продукции">
+    <!-- Фон: слайдер assets/hero-1.jpg … hero-4.jpg (промпты в PHOTO-PROMPT.md).
+         Рулон в центре кадра, кадр сдвинут вправо — рулон стоит справа от заголовка. -->
+    <figure class="hero__media" aria-label="Фото продукции">
+      <div class="slider" aria-roledescription="carousel">
         <div class="slider__track"></div>
-        <div class="hero__brands" aria-label="Бренды">
-          <img src="assets/logo-isofom.png" alt="ISOFOM" width="120" height="20">
-          <img src="assets/logo-isolon.png" alt="ISOLON" width="120" height="22">
-        </div>
-        <div class="slider__nav" hidden>
-          <button class="slider__arrow" type="button" data-dir="-1" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-          <div class="slider__dots"></div>
-          <button class="slider__arrow" type="button" data-dir="1" aria-label="Следующее фото"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-        </div>
       </div>
     </figure>
 
+    <div class="container hero__body">
+      <h1 class="hero__title">Утеплитель нового поколения <span class="hero__price">от&nbsp;100&nbsp;руб. за&nbsp;м²</span></h1>
+      <p class="hero__lead"><b>Получите в течение 1 часа.</b> Розница от рулона и опт. Весь спектр ИЗОЛОН, ИЗОФОМ, ЭВА в наличии!</p>
+      <div class="hero__actions">
+        <a class="pill pill--accent pill--lg" href="#order">Оформить заказ</a>
+        <a class="hero__link" href="#catalog">Каталог продукции
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="slider__nav" hidden>
+        <button class="slider__arrow" type="button" data-dir="-1" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <div class="slider__dots"></div>
+        <button class="slider__arrow" type="button" data-dir="1" aria-label="Следующее фото"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <!-- «Срез»: слои материала как фирменный мотив + характеристики ИЗОЛОН ППЭ из каталога сайта -->
+    <div class="cut">
+      <div class="cut__layers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="container cut__row">
+        <dl class="cut__specs">
+          <div><dt>Толщина</dt><dd>1–50 <small>мм</small></dd></div>
+          <div><dt>Ширина рулона</dt><dd>1,5 <small>м</small></dd></div>
+          <div><dt>Плотность</dt><dd>25–200 <small>кг/м³</small></dd></div>
+          <div><dt>Теплопроводность</dt><dd>0,036 <small>Вт/м·К</small></dd></div>
+        </dl>
+        <div class="cut__brands" aria-label="Бренды">
+          <img src="assets/logo-isofom.png" alt="ISOFOM" width="120" height="20">
+          <img src="assets/logo-isolon.png" alt="ISOLON" width="120" height="22">
+        </div>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -99,7 +102,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
     +7 (499) 136-62-63
   </a>
-  <a class="pill pill--dark" href="#order">Оформить заказ</a>
+  <a class="pill pill--accent" href="#order">Оформить заказ</a>
 </div>
 
 <script>
@@ -122,8 +125,8 @@
     const list = found.filter(Boolean);
     const slider = document.querySelector('.slider');
     const track = slider.querySelector('.slider__track');
-    const nav = slider.querySelector('.slider__nav');
-    const dotsBox = slider.querySelector('.slider__dots');
+    const nav = document.querySelector('.slider__nav');
+    const dotsBox = nav.querySelector('.slider__dots');
 
     const imgs = list.map((s, i) => {
       const img = document.createElement('img');
