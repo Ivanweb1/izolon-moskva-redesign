@@ -83,24 +83,28 @@ img { display: block; max-width: 100%; }
 /* ── Первый экран ── */
 .hero { background: var(--white); padding-top: 64px; }
 
-/* Слева метка + заголовок, справа описание, кнопки и подпись — верх колонок на одной линии */
+/* Слева заголовок, справа карточка той же высоты: верх и низ совпадают со строками заголовка */
 .hero__top {
-  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  column-gap: 96px; align-items: start; padding-bottom: 56px;
-}
-.hero__eyebrow {
-  margin: 0 0 18px;
-  font-size: 13px; font-weight: 600; line-height: 1; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--muted);
+  display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  column-gap: 64px; align-items: stretch; padding-bottom: 56px;
 }
 .hero__title {
-  margin: 0; font-weight: 700; color: var(--brand-ink);
-  font-size: clamp(42px, 4.8vw, 72px); line-height: 1.04; letter-spacing: -.025em;
+  margin: 0; align-self: center; font-weight: 700; color: var(--brand-ink);
+  font-size: clamp(42px, 5.6vw, 72px); line-height: 1.04; letter-spacing: -.025em;
 }
 .hero__title span { display: block; color: var(--brand); }
 
-.hero__side { padding-top: 26px; max-width: 440px; }
-.hero__text { margin: 0 0 28px; font-size: 17px; line-height: 1.6; color: var(--muted); }
+.hero__card {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+  padding: 28px 32px; border-radius: 24px; background: var(--bg);
+}
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 14px;
+  font-size: 12.5px; font-weight: 600; line-height: 1; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--brand);
+}
+.hero__eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--brand); }
+.hero__text { margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
 .hero__text b { color: var(--brand-ink); font-weight: 600; }
 
 .hero__actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
@@ -179,11 +183,16 @@ img { display: block; max-width: 100%; }
   }
 }
 
+/* Две колонки только когда заголовок и карточка помещаются по высоте */
+@media (max-width: 1180px) {
+  .hero__top { grid-template-columns: 1fr; row-gap: 28px; }
+  .hero__card { max-width: 640px; }
+}
+
 /* ── Планшет ── */
 @media (max-width: 900px) {
   .hero { padding-top: 48px; }
-  .hero__top { grid-template-columns: 1fr; row-gap: 24px; padding-bottom: 40px; }
-  .hero__side { padding-top: 0; max-width: 560px; }
+  .hero__top { padding-bottom: 40px; }
   .header__contacts > .pill { display: none; }
   .header.is-open .nav__contacts { display: flex; flex-direction: column; gap: 14px; padding-top: 18px; }
   .nav__contacts a:not(.pill) { display: flex; flex-direction: column; gap: 2px; font-size: 16px; font-weight: 600; }
@@ -209,7 +218,7 @@ img { display: block; max-width: 100%; }
   .hero__actions { gap: 18px; }
   .hero__actions .pill { width: 100%; }
   .hero__link { margin: 0 auto; }
-  .hero__eyebrow { font-size: 12px; margin-bottom: 14px; }
+  .hero__card { padding: 22px 20px; border-radius: 20px; }
   .slider { aspect-ratio: 4 / 3; min-height: 0; --edge: 12px; }
   .hero__brands { bottom: 12px; height: 40px; gap: 14px; padding: 0 14px; }
   .hero__brands img { width: 70px; }
