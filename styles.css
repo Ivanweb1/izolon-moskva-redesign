@@ -1,16 +1,21 @@
+@font-face {
+  font-family: "Iskra";
+  src: url("assets/fonts/iskra-ultrabold.otf") format("opentype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
 :root {
-  --navy: #141B34;
-  --navy-2: #1C2547;
-  --navy-line: rgba(255,255,255,.12);
+  /* фиолетовый из логотипа + его оттенки */
+  --brand: #4557A4;
+  --brand-hover: #3A4A90;
+  --brand-ink: #1E2450;   /* заголовки, тёмные кнопки */
+  --brand-soft: #E9ECF7;
+  --bg: #F4F5F9;
   --white: #FFFFFF;
-  --bg: #F4F5F8;
-  --text: #141B34;
-  --muted: #6B7290;
-  --accent: #FFC21A;
-  --accent-hover: #FFD04D;
-  --radius: 20px;
-  --shadow: 0 20px 60px -20px rgba(10,14,35,.45);
-  --container: 1240px;
+  --text: #1E2450;
+  --muted: #646A8C;
+  --line: #E2E5EF;
+  --container: 1320px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -25,158 +30,150 @@ body {
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; }
 
-.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 40px; }
 
-/* Кнопки — единственное место с капсом */
-.btn {
+/* Кнопки-пилюли (капс только здесь) */
+.pill {
   display: inline-flex; align-items: center; justify-content: center;
-  height: 60px; padding: 0 34px;
-  border-radius: 14px; border: 0; cursor: pointer;
-  font: 700 15px/1 "Onest", sans-serif;
-  letter-spacing: .06em; text-transform: uppercase;
-  transition: background .2s, transform .2s;
+  height: 44px; padding: 0 22px; border-radius: 100px; white-space: nowrap;
+  font: 600 14px/1 "Onest", sans-serif;
+  transition: background .2s, color .2s, border-color .2s;
 }
-.btn--accent { background: var(--accent); color: var(--navy); }
-.btn--accent:hover { background: var(--accent-hover); transform: translateY(-1px); }
-.btn--sm { height: 48px; padding: 0 20px; font-size: 13px; border-radius: 12px; }
+.pill--dark { background: var(--brand-ink); color: var(--white); }
+.pill--dark:hover { background: var(--brand); }
+.pill--ghost { border: 1px solid var(--line); background: var(--white); }
+.pill--ghost:hover { border-color: var(--brand); color: var(--brand); }
+.pill--accent { background: var(--brand); color: var(--white); text-transform: uppercase; letter-spacing: .06em; font-weight: 700; font-size: 13px; }
+.pill--accent:hover { background: var(--brand-hover); }
+.pill--lg { height: 56px; padding: 0 32px; font-size: 14px; }
 
 /* ── Шапка ── */
-.header { background: var(--white); border-bottom: 1px solid #E6E8EF; position: sticky; top: 0; z-index: 20; }
-.header__row { display: flex; align-items: center; gap: 32px; height: 80px; }
+.header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+.header__row { display: flex; align-items: center; gap: 32px; height: 76px; }
 
-.logo { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-.logo__icon { width: 40px; height: 40px; }
-.logo__text { font-weight: 700; font-size: 15px; line-height: 1.15; }
+.logo {
+  display: flex; align-items: center; gap: 6px; flex-shrink: 0;
+  font-family: "Iskra", sans-serif; font-weight: 900; font-size: 22px;
+  color: var(--brand); text-transform: uppercase; line-height: 1;
+}
+.logo__icon { width: 34px; height: auto; margin: 0 2px; }
 
-.nav { display: flex; gap: 26px; margin-right: auto; }
-.nav a { font-size: 15px; font-weight: 500; color: var(--muted); white-space: nowrap; transition: color .2s; }
-.nav a:hover { color: var(--text); }
+.nav { display: flex; gap: 28px; margin: 0 auto; }
+.nav a { font-size: 14.5px; font-weight: 500; color: var(--muted); white-space: nowrap; transition: color .2s; }
+.nav a:hover { color: var(--brand-ink); }
 
-.contacts { display: flex; gap: 28px; }
-.contacts__item { display: flex; flex-direction: column; gap: 2px; }
-.contacts__main { font-size: 15px; font-weight: 600; white-space: nowrap; }
-.contacts__main--phone { font-size: 17px; font-weight: 700; }
-.contacts__sub { font-size: 12.5px; color: var(--muted); }
-
+.header__actions { display: flex; gap: 10px; flex-shrink: 0; }
 .burger { display: none; }
 
 /* ── Первый экран ── */
-.hero {
-  background:
-    radial-gradient(900px 500px at 15% -10%, #26306A 0%, transparent 60%),
-    var(--navy);
-  color: var(--white);
-  overflow: hidden;
-}
-.hero__grid {
-  display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center;
-  min-height: calc(100vh - 80px); max-height: 860px; padding-top: 64px; padding-bottom: 64px;
-}
+.hero { background: var(--bg); padding-top: 72px; }
 
-.hero__eyebrow {
-  display: inline-flex; align-items: center; gap: 10px;
-  margin: 0 0 28px; padding: 9px 16px 9px 14px;
-  border: 1px solid var(--navy-line); border-radius: 100px;
-  font-size: 15px; font-weight: 500; color: rgba(255,255,255,.85);
+.hero__top {
+  display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 64px; align-items: start;
 }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(255,194,26,.18); }
-
 .hero__title {
-  margin: 0; font-weight: 800;
-  font-size: clamp(38px, 4.6vw, 64px); line-height: 1.04; letter-spacing: -.025em;
+  margin: 0; font-weight: 600; color: var(--brand-ink);
+  font-size: clamp(44px, 5.4vw, 80px); line-height: 1.02; letter-spacing: -.03em;
 }
-.hero__price { display: block; color: var(--accent); }
+.hero__title span { color: var(--brand); }
 
-.hero__lead { margin: 22px 0 0; font-size: 20px; color: rgba(255,255,255,.72); }
-
-.hero__stock {
-  display: flex; align-items: center; gap: 14px;
-  margin-top: 36px; padding: 16px 20px; max-width: 520px;
-  background: var(--navy-2); border: 1px solid var(--navy-line); border-radius: 16px;
+.hero__side { padding-top: 14px; max-width: 400px; }
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 8px; margin: 0 0 16px;
+  font-size: 14px; font-weight: 600; color: var(--brand);
 }
-.hero__stock p { margin: 0; font-size: 17px; line-height: 1.35; }
-.hero__stock b { font-weight: 700; color: var(--accent); }
-.hero__stock-icon {
-  flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
-  display: grid; place-items: center; background: var(--accent); color: var(--navy);
-}
-.hero__stock-icon svg { width: 20px; height: 20px; }
-
-.hero__actions { display: flex; align-items: center; gap: 36px; margin-top: 40px; flex-wrap: wrap; }
-.brands { display: flex; align-items: center; gap: 28px; opacity: .6; }
-.brands img { height: auto; }
+.hero__eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--brand); }
+.hero__text { margin: 0 0 28px; font-size: 18px; line-height: 1.5; color: var(--muted); }
+.hero__text b { color: var(--brand-ink); font-weight: 600; }
 
 .hero__media {
-  margin: 0; position: relative; aspect-ratio: 4 / 5; max-height: 680px; justify-self: end; width: 100%;
-  border-radius: 28px; overflow: hidden; box-shadow: var(--shadow); background: var(--navy-2);
+  position: relative; margin: 56px auto 0; max-width: var(--container);
+  padding: 0 40px;
 }
-.hero__media img { width: 100%; height: 100%; object-fit: cover; }
-.hero__media img.is-temp { object-fit: cover; object-position: 30% 50%; }
+.hero__photo {
+  width: 100%; aspect-ratio: 16 / 10; max-height: 640px; object-fit: cover; object-position: 50% 70%;
+  border-radius: 28px; background: #E4E6EE;
+}
+.hero__photo.is-temp { object-position: 50% 60%; }
 
-/* Почта уходит из шапки, когда не хватает ширины */
-@media (max-width: 1480px) {
-  .contacts__item:first-child { display: none; }
-  .nav { gap: 22px; }
+.hero__brands {
+  position: absolute; left: 72px; bottom: 28px;
+  display: flex; align-items: center; gap: 24px;
+  padding: 14px 22px; border-radius: 100px;
+  background: rgba(30,36,80,.72); backdrop-filter: blur(8px);
+}
+.hero__brands img { height: auto; width: 104px; }
+
+.hero__contacts {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding-top: 20px; padding-bottom: 40px;
+  font-size: 13.5px; color: var(--muted);
 }
 
-/* Липкая панель — только мобильные */
 .mobile-bar { display: none; }
 
-/* ── Планшет ── */
-@media (max-width: 1180px) {
+/* ── Ноутбук ── */
+@media (max-width: 1600px) {
+  .header__mail { display: none; }
+  .nav { gap: 22px; }
+}
+@media (max-width: 1240px) {
   .nav { display: none; }
-  .contacts { margin-left: auto; }
+  .header__actions { margin-left: auto; }
   .burger {
     display: grid; gap: 6px; place-content: center;
-    width: 44px; height: 44px; border: 1px solid #E6E8EF; border-radius: 12px; background: var(--white); cursor: pointer;
+    width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 100px; background: var(--white); cursor: pointer;
   }
-  .burger span { display: block; width: 18px; height: 2px; background: var(--navy); border-radius: 2px; }
+  .burger span { display: block; width: 18px; height: 2px; background: var(--brand-ink); border-radius: 2px; }
   .header.is-open .nav {
     display: flex; flex-direction: column; gap: 0;
-    position: absolute; top: 100%; left: 0; right: 0; padding: 8px 24px 16px;
-    background: var(--white); border-bottom: 1px solid #E6E8EF; box-shadow: 0 20px 40px -20px rgba(0,0,0,.2);
+    position: absolute; top: 100%; left: 0; right: 0; padding: 8px 40px 16px;
+    background: var(--white); border-bottom: 1px solid var(--line); box-shadow: 0 20px 40px -20px rgba(30,36,80,.25);
   }
-  .header.is-open .nav a { padding: 14px 0; font-size: 17px; color: var(--text); border-bottom: 1px solid #EEF0F4; }
+  .header.is-open .nav a { padding: 14px 0; font-size: 17px; color: var(--text); border-bottom: 1px solid #EEF0F6; }
 }
 
-@media (max-width: 960px) {
-  .hero__grid { grid-template-columns: 1fr; min-height: 0; max-height: none; gap: 40px; padding-top: 48px; }
-  .hero__media { aspect-ratio: 16 / 11; justify-self: stretch; }
+/* ── Планшет ── */
+@media (max-width: 900px) {
+  .hero { padding-top: 48px; }
+  .hero__top { grid-template-columns: 1fr; gap: 28px; }
+  .hero__side { padding-top: 0; max-width: 520px; }
+  .hero__photo { aspect-ratio: 16 / 10; }
 }
 
 /* ── Телефон ── */
 @media (max-width: 640px) {
-  .container { padding: 0 16px; }
-  .header__row { height: 64px; gap: 12px; }
-  .logo__icon { width: 34px; height: 34px; }
-  .logo__text { font-size: 13.5px; }
-  .contacts { display: none; }
+  .container, .hero__media { padding-left: 16px; padding-right: 16px; }
+  .header__row { height: 64px; gap: 10px; }
+  .logo { font-size: 15px; gap: 4px; }
+  .logo__icon { width: 24px; }
+  .header__actions { display: none; }
   .burger { margin-left: auto; }
   .header.is-open .nav { padding: 4px 16px 12px; }
 
-  .hero__grid { padding-top: 32px; padding-bottom: 104px; gap: 32px; }
-  .hero__eyebrow { font-size: 13.5px; margin-bottom: 20px; }
-  .hero__title { font-size: 36px; }
-  .hero__lead { font-size: 17px; margin-top: 16px; }
-  .hero__stock { margin-top: 28px; padding: 14px 16px; }
-  .hero__stock p { font-size: 15.5px; }
-  .hero__actions { margin-top: 28px; gap: 24px; }
-  .hero__actions .btn { width: 100%; }
-  .brands { width: 100%; justify-content: center; }
-  .hero__media { aspect-ratio: 4 / 3; border-radius: 20px; }
+  .hero { padding-top: 36px; }
+  .hero__title { font-size: 40px; }
+  .hero__text { font-size: 16.5px; margin-bottom: 24px; }
+  .hero__side .pill { width: 100%; }
+  .hero__media { margin-top: 36px; }
+  .hero__photo { aspect-ratio: 4 / 3; border-radius: 20px; }
+  .hero__brands { left: 28px; right: 28px; bottom: 14px; justify-content: center; gap: 18px; padding: 10px 16px; }
+  .hero__brands img { width: 86px; }
+  .hero__contacts { flex-direction: column; gap: 6px; padding-bottom: 104px; }
 
   .mobile-bar {
     display: flex; gap: 10px; align-items: center;
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
     padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
     background: rgba(255,255,255,.96); backdrop-filter: blur(10px);
-    border-top: 1px solid #E6E8EF;
+    border-top: 1px solid var(--line);
   }
   .mobile-bar__call {
-    flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 6px; height: 48px; padding: 0 10px;
-    border: 1px solid #E1E4EC; border-radius: 12px; font-weight: 700; font-size: 13.5px; white-space: nowrap;
+    flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 6px;
+    height: 48px; padding: 0 10px; border: 1px solid var(--line); border-radius: 100px;
+    font-weight: 700; font-size: 13.5px; white-space: nowrap;
   }
-  .mobile-bar .btn--sm { padding: 0 16px; font-size: 12px; letter-spacing: .04em; }
-  .mobile-bar__call svg { width: 18px; height: 18px; color: var(--navy); flex-shrink: 0; }
-  .mobile-bar .btn { flex-shrink: 0; }
+  .mobile-bar__call svg { width: 18px; height: 18px; color: var(--brand); flex-shrink: 0; }
+  .mobile-bar .pill { height: 48px; padding: 0 18px; font-size: 12px; letter-spacing: .04em; flex-shrink: 0; }
 }

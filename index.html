@@ -7,16 +7,18 @@
 <title>Весь спектр ИЗОЛОН и ИЗОФОМ в наличии!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="header">
   <div class="container header__row">
-    <a class="logo" href="#">
-      <svg class="logo__icon" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--accent)"/><circle cx="12" cy="17" r="6.5" fill="none" stroke="var(--navy)" stroke-width="2.4"/><circle cx="12" cy="17" r="2" fill="var(--navy)"/><path d="M12 10.5h11.5v13H15.5" fill="none" stroke="var(--navy)" stroke-width="2.4" stroke-linejoin="round"/></svg>
-      <span class="logo__text">Сшитый<br>пенополиэтилен</span>
+    <!-- Логотип сайта без изменений: шрифт Iskra, #4557A4, иконка рулона из оригинального спрайта -->
+    <a class="logo" href="#" aria-label="Сшитый пенополиэтилен">
+      <span>Сшитый</span>
+      <img class="logo__icon" src="assets/logo-roll.png" alt="" width="39" height="33">
+      <span>Пенополиэтилен</span>
     </a>
 
     <nav class="nav" aria-label="Основное меню">
@@ -28,15 +30,9 @@
       <a href="#contacts">Контакты</a>
     </nav>
 
-    <div class="contacts">
-      <a class="contacts__item" href="mailto:zakaz@izolon-moskva.ru">
-        <span class="contacts__main">zakaz@izolon-moskva.ru</span>
-        <span class="contacts__sub">отвечаем на все письма</span>
-      </a>
-      <a class="contacts__item" href="tel:+74991366263">
-        <span class="contacts__main contacts__main--phone">+7 (499) 136-62-63</span>
-        <span class="contacts__sub">с 9:00 до 18:00 мск</span>
-      </a>
+    <div class="header__actions">
+      <a class="pill pill--ghost header__mail" href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru</a>
+      <a class="pill pill--dark" href="tel:+74991366263">+7 (499) 136-62-63</a>
     </div>
 
     <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
@@ -45,32 +41,30 @@
 
 <main>
   <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__content">
-        <p class="hero__eyebrow"><span class="dot"></span>Получите в течение 1 часа</p>
-        <h1 class="hero__title">Утеплитель нового поколения <span class="hero__price">от&nbsp;100&nbsp;руб. за&nbsp;м²</span></h1>
-        <p class="hero__lead">Розница от рулона и опт</p>
+    <div class="container">
+      <div class="hero__top">
+        <h1 class="hero__title">Утеплитель нового поколения <span>от&nbsp;100&nbsp;руб. за&nbsp;м²</span></h1>
 
-        <div class="hero__stock">
-          <span class="hero__stock-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <p>Весь спектр <b>ИЗОЛОН, ИЗОФОМ, ЭВА</b> в наличии!</p>
-        </div>
-
-        <div class="hero__actions">
-          <a class="btn btn--accent" href="#order">Оформить заказ</a>
-          <div class="brands" aria-label="Бренды">
-            <img src="assets/logo-isofom.png" alt="ISOFOM" width="110" height="18">
-            <img src="assets/logo-isolon.png" alt="ISOLON" width="110" height="20">
-          </div>
+        <div class="hero__side">
+          <p class="hero__eyebrow">Получите в течение 1 часа</p>
+          <p class="hero__text">Розница от рулона и опт. Весь спектр <b>ИЗОЛОН, ИЗОФОМ, ЭВА</b> в наличии!</p>
+          <a class="pill pill--accent pill--lg" href="#order">Оформить заказ</a>
         </div>
       </div>
+    </div>
 
-      <figure class="hero__media">
-        <!-- Финальное фото: assets/hero.jpg (4:5). Пока стоит фото рулона с текущего сайта. -->
-        <img src="assets/hero.jpg" onerror="this.onerror=null;this.src='assets/src/slider1_1-min.jpg';this.classList.add('is-temp')" alt="Рулоны сшитого пенополиэтилена на складе">
-      </figure>
+    <figure class="hero__media">
+      <!-- Фото: assets/hero.jpg (16:10, кроп из assets/src/hero-original-4x5.jpg) -->
+      <img class="hero__photo" src="assets/hero.jpg" onerror="this.onerror=null;this.src='assets/src/slider1_2-min.jpg';this.classList.add('is-temp')" alt="Рулоны сшитого пенополиэтилена на складе">
+      <div class="hero__brands" aria-label="Бренды">
+        <img src="assets/logo-isofom.png" alt="ISOFOM" width="120" height="20">
+        <img src="assets/logo-isolon.png" alt="ISOLON" width="120" height="22">
+      </div>
+    </figure>
+
+    <div class="container hero__contacts">
+      <span>zakaz@izolon-moskva.ru — отвечаем на все письма</span>
+      <span>+7 (499) 136-62-63 — с 9:00 до 18:00 мск</span>
     </div>
   </section>
 </main>
@@ -80,7 +74,7 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
     +7 (499) 136-62-63
   </a>
-  <a class="btn btn--accent btn--sm" href="#order">Оформить заказ</a>
+  <a class="pill pill--accent" href="#order">Оформить заказ</a>
 </div>
 
 <script>
