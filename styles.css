@@ -125,7 +125,7 @@ img { display: block; max-width: 100%; }
 .slider {
   --edge: max(24px, calc((100% - var(--container)) / 2 + 40px));
   position: relative; overflow: hidden; isolation: isolate;
-  width: 100%; aspect-ratio: 2 / 1; min-height: 420px; max-height: 80vh;
+  width: 100%; aspect-ratio: 8 / 3; min-height: 315px; max-height: 60vh;
   background: #E4E6EE;
 }
 .slider__track { position: absolute; inset: 0; }
@@ -204,7 +204,7 @@ img { display: block; max-width: 100%; }
   .nav__contacts a:not(.pill) { display: flex; flex-direction: column; gap: 2px; font-size: 16px; font-weight: 600; }
   .nav__contacts span { font-size: 13px; font-weight: 400; color: var(--muted); }
   .nav__contacts .pill { height: 48px; align-self: flex-start; }
-  .slider { aspect-ratio: 3 / 2; max-height: none; }
+  .slider { aspect-ratio: 2 / 1; max-height: none; }
 }
 
 /* ── Телефон ── */
@@ -225,7 +225,7 @@ img { display: block; max-width: 100%; }
   .hero__actions .pill { width: 100%; }
   .hero__link { width: 100%; height: 52px; }
   .hero__card { padding: 22px 20px; border-radius: 20px; }
-  .slider { aspect-ratio: 4 / 3; min-height: 0; --edge: 12px; }
+  .slider { aspect-ratio: 16 / 9; min-height: 0; --edge: 12px; }
   .hero__brands { bottom: 12px; height: 40px; gap: 14px; padding: 0 14px; }
   .hero__brands img { width: 70px; }
   .slider__nav { bottom: 12px; height: 40px; padding: 0 12px; }
