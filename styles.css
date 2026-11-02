@@ -245,7 +245,7 @@ img { display: block; max-width: 100%; }
     font-weight: 700; font-size: 13.5px; white-space: nowrap;
   }
   .mobile-bar__call svg { width: 18px; height: 18px; color: var(--brand); flex-shrink: 0; }
-  .mobile-bar .pill { height: 48px; padding: 0 18px; font-size: 12px; letter-spacing: .04em; flex-shrink: 0; }
+  .mobile-bar .pill { height: 48px; padding: 0 20px; font-size: 14px; flex-shrink: 0; }
 }
 
 /* ── Узкие телефоны ── */
