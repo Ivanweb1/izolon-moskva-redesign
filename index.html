@@ -31,7 +31,6 @@
     </nav>
 
     <div class="header__actions">
-      <a class="pill pill--ghost header__mail" href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru</a>
       <a class="pill pill--dark" href="tel:+74991366263">+7 (499) 136-62-63</a>
     </div>
 
@@ -42,23 +41,31 @@
 <main>
   <section class="hero">
     <div class="container">
+      <p class="hero__eyebrow">Получите в течение 1 часа</p>
       <div class="hero__top">
         <h1 class="hero__title">Утеплитель нового поколения <span>от&nbsp;100&nbsp;руб. за&nbsp;м²</span></h1>
 
         <div class="hero__side">
-          <p class="hero__eyebrow">Получите в течение 1 часа</p>
-          <p class="hero__text">Розница от рулона и опт. Весь спектр <b>ИЗОЛОН, ИЗОФОМ, ЭВА</b> в наличии!</p>
+          <p class="hero__text"><span class="hero__lead">Розница от рулона и опт.</span> Весь спектр <b>ИЗОЛОН, ИЗОФОМ, ЭВА</b> в наличии!</p>
           <a class="pill pill--accent pill--lg" href="#order">Оформить заказ</a>
         </div>
       </div>
     </div>
 
+    <!-- Слайдер: assets/hero-1.jpg … hero-4.jpg (3:2, промпты в PHOTO-PROMPT.md).
+         Слайды без файла пропускаются; если нет hero-1.jpg, первым идёт assets/hero.jpg. -->
     <figure class="hero__media">
-      <!-- Фото: assets/hero.jpg (16:10, кроп из assets/src/hero-original-4x5.jpg) -->
-      <img class="hero__photo" src="assets/hero.jpg" onerror="this.onerror=null;this.src='assets/src/slider1_2-min.jpg';this.classList.add('is-temp')" alt="Рулоны сшитого пенополиэтилена на складе">
-      <div class="hero__brands" aria-label="Бренды">
-        <img src="assets/logo-isofom.png" alt="ISOFOM" width="120" height="20">
-        <img src="assets/logo-isolon.png" alt="ISOLON" width="120" height="22">
+      <div class="slider" aria-roledescription="carousel" aria-label="Фото продукции">
+        <div class="slider__track"></div>
+        <div class="hero__brands" aria-label="Бренды">
+          <img src="assets/logo-isofom.png" alt="ISOFOM" width="120" height="20">
+          <img src="assets/logo-isolon.png" alt="ISOLON" width="120" height="22">
+        </div>
+        <div class="slider__nav" hidden>
+          <button class="slider__arrow" type="button" data-dir="-1" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="slider__dots"></div>
+          <button class="slider__arrow" type="button" data-dir="1" aria-label="Следующее фото"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
       </div>
     </figure>
 
@@ -80,6 +87,64 @@
 <script>
   const b=document.querySelector('.burger'),h=document.querySelector('.header');
   b.addEventListener('click',()=>{const o=h.classList.toggle('is-open');b.setAttribute('aria-expanded',o)});
+
+  // Слайдер первого экрана
+  (async () => {
+    const slides = [
+      { src: 'assets/hero-1.jpg', fallback: 'assets/hero.jpg', alt: 'Рулон сшитого пенополиэтилена на складе' },
+      { src: 'assets/hero-2.jpg', alt: 'Фольгированный пенополиэтилен в рулонах' },
+      { src: 'assets/hero-3.jpg', alt: 'Маты-листы ИЗОЛОН разной толщины' },
+      { src: 'assets/hero-4.jpg', alt: 'Листовой ЭВА в базовых цветах' },
+    ];
+    const ok = src => new Promise(r => { const i = new Image(); i.onload = () => r(src); i.onerror = () => r(null); i.src = src; });
+    const found = await Promise.all(slides.map(async s => {
+      const src = await ok(s.src) || (s.fallback && await ok(s.fallback));
+      return src ? { ...s, src } : null;
+    }));
+    const list = found.filter(Boolean);
+    const slider = document.querySelector('.slider');
+    const track = slider.querySelector('.slider__track');
+    const nav = slider.querySelector('.slider__nav');
+    const dotsBox = slider.querySelector('.slider__dots');
+
+    const imgs = list.map((s, i) => {
+      const img = document.createElement('img');
+      img.className = 'slider__slide' + (i === 0 ? ' is-active' : '');
+      img.src = s.src; img.alt = s.alt;
+      track.append(img);
+      return img;
+    });
+    if (imgs.length < 2) return;
+
+    let cur = 0, timer;
+    const dots = imgs.map((_, i) => {
+      const d = document.createElement('button');
+      d.type = 'button'; d.className = 'slider__dot' + (i === 0 ? ' is-active' : '');
+      d.setAttribute('aria-label', 'Фото ' + (i + 1));
+      d.addEventListener('click', () => { go(i); restart(); });
+      dotsBox.append(d);
+      return d;
+    });
+    const go = i => {
+      cur = (i + imgs.length) % imgs.length;
+      imgs.forEach((im, k) => im.classList.toggle('is-active', k === cur));
+      dots.forEach((d, k) => d.classList.toggle('is-active', k === cur));
+    };
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const restart = () => { clearInterval(timer); if (!reduce) timer = setInterval(() => go(cur + 1), 5000); };
+    nav.hidden = false;
+    nav.querySelectorAll('.slider__arrow').forEach(a => a.addEventListener('click', () => { go(cur + +a.dataset.dir); restart(); }));
+    slider.addEventListener('mouseenter', () => clearInterval(timer));
+    slider.addEventListener('mouseleave', restart);
+    let x0 = null;
+    slider.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+    slider.addEventListener('touchend', e => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { go(cur + (dx < 0 ? 1 : -1)); restart(); }
+    });
+    restart();
+  })();
 </script>
 </body>
 </html>
