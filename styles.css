@@ -67,15 +67,19 @@ img { display: block; max-width: 100%; }
 .hcontact__sub { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
 
 .header__nav { border-top: 1px solid var(--line); }
-/* Пункты меню растянуты на всю ширину, у каждого лёгкая серая подложка */
-.nav { display: flex; gap: 8px; height: 56px; align-items: center; }
+/* Меню — одна сплошная серая полоса на всю ширину, пункты делят её поровну */
+.header__nav { padding: 8px 0; }
+.nav {
+  display: flex; align-items: stretch; height: 44px; padding: 4px;
+  border-radius: 12px; background: var(--bg);
+}
 .nav a {
   flex: 1 1 0; display: flex; align-items: center; justify-content: center;
-  height: 38px; padding: 0 12px; border-radius: 10px; background: var(--bg);
+  padding: 0 12px; border-radius: 9px;
   font-size: 14.5px; font-weight: 500; color: var(--muted); white-space: nowrap;
-  transition: color .2s, background .2s;
+  transition: color .2s, background .2s, box-shadow .2s;
 }
-.nav a:hover { color: var(--brand); background: var(--brand-soft); }
+.nav a:hover { color: var(--brand); background: var(--white); box-shadow: 0 1px 3px rgba(30,36,80,.08); }
 .nav__contacts { display: none; }
 
 .burger { display: none; }
@@ -176,9 +180,10 @@ img { display: block; max-width: 100%; }
     background: var(--white); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
     box-shadow: 0 20px 40px -20px rgba(30,36,80,.25); padding-bottom: 16px;
   }
-  .header.is-open .nav { flex-direction: column; align-items: stretch; gap: 0; height: auto; }
+  .header.is-open .header__nav { padding: 0 0 16px; }
+  .header.is-open .nav { flex-direction: column; align-items: stretch; gap: 0; height: auto; padding: 0; border-radius: 0; background: none; }
   .header.is-open .nav a {
-    flex: none; justify-content: flex-start; height: auto; padding: 14px 0; border-radius: 0; background: none;
+    flex: none; justify-content: flex-start; height: auto; padding: 14px 0; border-radius: 0; background: none; box-shadow: none;
     font-size: 17px; color: var(--text); border-bottom: 1px solid #EEF0F6;
   }
 }
