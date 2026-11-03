@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -21,12 +21,20 @@
       <span>Пенополиэтилен</span>
     </a>
 
+    <!-- Короткое меню в строке (≥1100px), полное — по бургеру -->
+    <nav class="hnav" aria-label="Разделы">
+      <a href="#catalog">Каталог</a>
+      <a href="#usage">Применение</a>
+      <a href="#benefits">Преимущества</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
     <div class="header__contacts">
       <a class="hphone" href="tel:+74991366263">
         <span class="hphone__num">+7 (499) 136-62-63</span>
         <span class="hphone__sub">с 9:00 до 18:00 мск</span>
       </a>
-      <a class="pill pill--line" href="#callback">Заказать звонок</a>
+      <a class="pill pill--ink" href="#calc">Заказать расчёт</a>
     </div>
 
     <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
@@ -46,7 +54,7 @@
       <div class="drawer__contacts">
         <a href="tel:+74991366263">+7 (499) 136-62-63 <span>с 9:00 до 18:00 мск</span></a>
         <a href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru <span>отвечаем на все письма</span></a>
-        <a class="pill pill--line" href="#callback">Заказать звонок</a>
+        <a class="pill pill--ink drawer__cta" href="#calc">Заказать расчёт</a>
       </div>
     </div>
   </div>
@@ -63,7 +71,7 @@
     </figure>
 
     <div class="container hero__body">
-      <h1 class="hero__title">Утеплитель нового поколения <span class="hero__price">от&nbsp;100&nbsp;руб. за&nbsp;м²</span></h1>
+      <h1 class="hero__title">Утеплитель<br> нового поколения</h1>
       <p class="hero__lead"><b>Получите в течение 1 часа.</b> Розница от рулона и опт. Весь спектр ИЗОЛОН, ИЗОФОМ, ЭВА в наличии!</p>
       <div class="hero__actions">
         <a class="pill pill--accent pill--lg" href="#order">Оформить заказ</a>
@@ -71,6 +79,20 @@
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
       </div>
+      <!-- Цена — «торец рулона»: слои материала по спирали, цена в центре -->
+      <p class="roll-tag">
+        <svg class="roll-tag__rings" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="96" class="r1"/><circle cx="100" cy="100" r="88" class="r2"/>
+          <circle cx="100" cy="100" r="81" class="r3"/><circle cx="100" cy="100" r="75" class="r4"/>
+          <circle cx="100" cy="100" r="70" class="r5"/>
+        </svg>
+        <span class="roll-tag__core">
+          <span class="roll-tag__from">от</span>
+          <span class="roll-tag__num">100</span>
+          <span class="roll-tag__unit">руб. за&nbsp;м²</span>
+        </span>
+      </p>
+
       <div class="slider__nav" hidden>
         <button class="slider__arrow" type="button" data-dir="-1" aria-label="Предыдущее фото"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
         <div class="slider__dots"></div>
