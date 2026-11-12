@@ -519,7 +519,6 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .sec { padding: 88px 0; }
   .sec--ink { padding-top: 0; }
   .sec--ink > .cut__layers { margin-bottom: 72px; }
-  .discount { padding-top: 0; }
   .discount { padding-bottom: 0; }
   .usage__grid, .steps__grid, .contacts__grid { grid-template-columns: 1fr; gap: 40px; }
   .usage__media { aspect-ratio: 1; }
@@ -529,6 +528,8 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
 }
 @media (max-width: 640px) {
   .sec { padding: 64px 0; }
+  .sec--ink { padding-top: 0; } /* полосы-«срез» прилегают к верху тёмных секций */
+  .discount { padding-bottom: 0; }
   .sec--ink > .cut__layers { margin-bottom: 56px; }
   .sec__title { margin-bottom: 16px; font-size: 30px; }
   .usage__list li { font-size: 16.5px; padding: 12px 0; }
