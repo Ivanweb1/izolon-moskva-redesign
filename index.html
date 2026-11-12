@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=14">
+<link rel="stylesheet" href="styles.css?v=15">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -125,7 +125,7 @@
   <!-- ══ Применение ══ -->
   <section class="sec usage" id="usage">
     <div class="container">
-      <h2 class="sec__title usage__title">Сшитый пенополиэтилен (ППЭ) Изолон, Изофом, идеально применяется&nbsp;как:</h2>
+      <h2 class="sec__title usage__title"><span class="usage__kicker">Сшитый пенополиэтилен (ППЭ) Изолон, Изофом,</span> Идеально применяется&nbsp;как:</h2>
       <div class="usage__grid">
         <!-- Фото: assets/photos/usage-house.jpg 1:1 (промпт в PHOTO-PROMPTS.md) -->
         <figure class="ph usage__media" data-file="photos/usage-house.jpg">
