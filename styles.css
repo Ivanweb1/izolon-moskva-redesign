@@ -442,6 +442,9 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
 .footer__row { display: flex; align-items: center; gap: 40px; padding-bottom: 36px; margin-bottom: 28px; border-bottom: 1px solid var(--line-dark); }
 .logo--light { color: var(--white); }
 .footer__contacts { display: flex; gap: 32px; margin-left: auto; font-weight: 600; }
+.footer__docs { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-bottom: 28px; font-size: 13px; line-height: 1.4; }
+.footer__docs a { color: var(--on-dark); text-decoration: underline; text-decoration-color: var(--line-dark); text-underline-offset: 3px; transition: color .2s, text-decoration-color .2s; }
+.footer__docs a:hover { color: var(--white); text-decoration-color: var(--white); }
 .footer__copy { margin: 0; font-size: 13px; color: var(--on-dark-2); }
 
 /* ── Модальные окна ── */
@@ -509,6 +512,7 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .contacts__list li { font-size: 18px; }
   .contacts__map, .contacts__map iframe { min-height: 320px; }
   .footer__contacts { flex-direction: column; gap: 10px; }
+  .footer { padding-bottom: calc(100px + env(safe-area-inset-bottom)); } /* под липкой панелью звонок+заказ */
   .lightbox .modal__close { right: 0; top: -52px; }
   .modal { padding: 40px 20px 24px; }
 }
