@@ -413,15 +413,23 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
 
 /* ── Преимущества: фото 2×2 + 8 карточек ── */
 .benefits { background: var(--white); }
-.benefits__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-.benefits__media { grid-column: span 2; grid-row: span 2; border-radius: 20px; min-height: 420px; }
-.benefit { display: flex; flex-direction: column; gap: 18px; padding: 26px 24px; background: var(--bg); border-radius: 20px; }
-.benefit > svg { color: var(--brand); }
-.benefit p { margin: 0; font-size: 17px; line-height: 1.4; font-weight: 500; }
+/* Склад на всю ширину контейнера, внизу кадра — сплошная тёмная плашка с пунктами */
+.benefits__band { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 720px; padding: 24px; border-radius: 24px; overflow: hidden; isolation: isolate; }
+.benefits__media { position: absolute; inset: 0; z-index: -1; border-radius: 0; }
+.benefits__media img { object-position: 50% 42%; }
+.benefits__panel {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  background: var(--ink); color: var(--white); border-radius: 18px; overflow: hidden;
+}
+.benefit { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 28px 26px 30px; }
+.benefit:not(:nth-child(4n+1)) { border-left: 1px solid var(--line-dark); }
+.benefit:nth-child(n+5) { border-top: 1px solid var(--line-dark); }
+.benefit > svg { color: var(--accent); }
+.benefit p { margin: 0; font-size: 16.5px; line-height: 1.4; font-weight: 500; color: rgba(255,255,255,.9); }
 .benefit p::first-letter { text-transform: uppercase; }
 .benefit__link {
   display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding: 0; border: 0; background: none; cursor: pointer;
-  font: 600 15px/1 "Onest", sans-serif; color: var(--brand);
+  font: 600 15px/1 "Onest", sans-serif; color: var(--accent);
 }
 .benefit__link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -491,8 +499,13 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
 }
 @media (max-width: 1100px) {
   .catalog__grid { grid-template-columns: repeat(2, 1fr); }
-  .benefits__grid { grid-template-columns: repeat(2, 1fr); }
-  .benefits__media { min-height: 0; aspect-ratio: 1; grid-row: auto; }
+  /* планшет и телефон: фото сверху кадром, плашка заходит на его низ */
+  .benefits__band { min-height: 0; padding: 0; border-radius: 20px; overflow: visible; }
+  .benefits__media { position: relative; inset: auto; aspect-ratio: 16 / 9; border-radius: 20px; z-index: 0; }
+  .benefits__panel { position: relative; margin: -64px 20px 0; grid-template-columns: repeat(2, 1fr); border-radius: 16px; }
+  .benefit:not(:nth-child(4n+1)) { border-left: 0; }
+  .benefit:nth-child(even) { border-left: 1px solid var(--line-dark); }
+  .benefit:nth-child(n+3) { border-top: 1px solid var(--line-dark); }
   .discount__box { grid-template-columns: 1fr; padding: 48px; }
   .lead__grid { grid-template-columns: 1fr; gap: 48px; }
   .lead__media { max-width: 640px; }
@@ -522,8 +535,14 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .catalog__grid { grid-template-columns: 1fr; gap: 16px; }
   .card__title { font-size: 21px; }
   .certs__row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .benefits__grid { grid-template-columns: 1fr; gap: 12px; }
-  .benefits__media { grid-column: auto; aspect-ratio: 4 / 3; }
+  .benefits__media { aspect-ratio: 4 / 3; }
+  .benefits__panel { margin: -48px 12px 0; grid-template-columns: 1fr; }
+  .benefit { flex-direction: row; align-items: flex-start; flex-wrap: wrap; gap: 14px; padding: 18px 18px; }
+  .benefit:nth-child(even) { border-left: 0; }
+  .benefit:nth-child(n+2) { border-top: 1px solid var(--line-dark); }
+  .benefit > svg { width: 26px; height: 26px; flex-shrink: 0; }
+  .benefit p { flex: 1; font-size: 15.5px; }
+  .benefit__link { margin-left: 40px; }
   .steps__list li { grid-template-columns: 44px 1fr; }
   .steps__list svg { display: none; }
   .steps__num { font-size: 34px; }

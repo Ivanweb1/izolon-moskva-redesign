@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=12">
+<link rel="stylesheet" href="styles.css?v=14">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -386,16 +386,19 @@
   <section class="sec benefits" id="benefits">
     <div class="container">
       <h2 class="sec__title">Сотрудничая с нами, Вы&nbsp;получите высокий уровень сервиса!</h2>
-      <div class="benefits__grid">
+      <!-- Склад на всю ширину, поверх — сплошная плашка с 8 пунктами -->
+      <div class="benefits__band">
         <figure class="ph benefits__media" data-file="photos/benefits-stock.jpg"><img src="assets/photos/benefits-stock.jpg" alt="Склад: рулоны пенополиэтилена на стеллажах" loading="lazy" onerror="ph(this)"></figure>
-        <div class="benefit"><svg><use href="#i-stock"/></svg><p>товар всегда в наличии</p></div>
-        <div class="benefit"><svg><use href="#i-clock"/></svg><p>отгрузка в течение часа</p></div>
-        <div class="benefit"><svg><use href="#i-factory"/></svg><p>прямые поставки с заводов-изготовителей</p></div>
-        <div class="benefit"><svg><use href="#i-calendar"/></svg><p>отсрочка платежа для постоянных клиентов</p></div>
-        <div class="benefit"><svg><use href="#i-shield"/></svg><p>гарантия качества на весь ассортимент товара</p></div>
-        <div class="benefit"><svg><use href="#i-percent"/></svg><p>гибкая ценовая политика и дополнительные скидки постоянным клиентам</p><button class="benefit__link" type="button" data-modal="callback">Получить цену <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
-        <div class="benefit"><svg><use href="#i-truck"/></svg><p>широко развитая и оперативная логистика – доставка в день оплаты</p></div>
-        <div class="benefit"><svg><use href="#i-scale"/></svg><p>ответственный подход к выполнению как малых так и крупных заказов</p></div>
+        <div class="benefits__panel">
+          <div class="benefit"><svg><use href="#i-stock"/></svg><p>товар всегда в наличии</p></div>
+          <div class="benefit"><svg><use href="#i-clock"/></svg><p>отгрузка в течение часа</p></div>
+          <div class="benefit"><svg><use href="#i-factory"/></svg><p>прямые поставки с заводов-изготовителей</p></div>
+          <div class="benefit"><svg><use href="#i-calendar"/></svg><p>отсрочка платежа для постоянных клиентов</p></div>
+          <div class="benefit"><svg><use href="#i-shield"/></svg><p>гарантия качества на весь ассортимент товара</p></div>
+          <div class="benefit"><svg><use href="#i-percent"/></svg><p>гибкая ценовая политика и дополнительные скидки постоянным клиентам</p><button class="benefit__link" type="button" data-modal="callback">Получить цену <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
+          <div class="benefit"><svg><use href="#i-truck"/></svg><p>широко развитая и оперативная логистика – доставка в день оплаты</p></div>
+          <div class="benefit"><svg><use href="#i-scale"/></svg><p>ответственный подход к выполнению как малых так и крупных заказов</p></div>
+        </div>
       </div>
     </div>
   </section>
