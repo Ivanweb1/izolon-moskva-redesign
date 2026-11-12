@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=11">
+<link rel="stylesheet" href="styles.css?v=12">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -130,16 +130,25 @@
         <!-- Фото: assets/photos/usage-house.jpg 1:1 (промпт в PHOTO-PROMPTS.md) -->
         <figure class="ph usage__media" data-file="photos/usage-house.jpg">
           <img src="assets/photos/usage-house.jpg" alt="Разрез дома: где работает изоляция из сшитого пенополиэтилена" loading="lazy" onerror="ph(this)">
+          <!-- Точки на разрезе дома: номер = пункт списка справа. Координаты в % от кадра usage-house.jpg -->
+          <button class="pin" type="button" data-u="1" style="left:78%;top:22%" aria-label="Пункт 1">1</button>
+          <button class="pin" type="button" data-u="2" style="left:40%;top:61%" aria-label="Пункт 2">2</button>
+          <button class="pin" type="button" data-u="3" style="left:34%;top:45%" aria-label="Пункт 3">3</button>
+          <button class="pin" type="button" data-u="4" style="left:55%;top:55.5%" aria-label="Пункт 4">4</button>
+          <button class="pin" type="button" data-u="5" style="left:31%;top:88%" aria-label="Пункт 5">5</button>
+          <button class="pin" type="button" data-u="6" style="left:60%;top:81%" aria-label="Пункт 6">6</button>
+          <button class="pin" type="button" data-u="7" style="left:52%;top:29%" aria-label="Пункт 7">7</button>
+          <button class="pin" type="button" data-u="8" style="left:85%;top:70%" aria-label="Пункт 8">8</button>
         </figure>
         <ol class="usage__list">
-          <li>Гидро и теплоизоляция кровли</li>
-          <li>Виброизоляция</li>
-          <li>Гидро-, тепло-, звукоизоляция межэтажных перекрытий, стен и&nbsp;полов</li>
-          <li>Высококачественная подложка под ламинат и&nbsp;под стяжку</li>
-          <li>Утеплитель и гидроизоляция фундамента</li>
-          <li>Теплоотражатель для контура «теплых» и&nbsp;устройство «плавающих» полов</li>
-          <li>Тепло- и шумоизоляция для систем вентиляции и&nbsp;кондиционирования</li>
-          <li>Шумо и теплоизоляция стен</li>
+          <li data-u="1">Гидро и теплоизоляция кровли</li>
+          <li data-u="2">Виброизоляция</li>
+          <li data-u="3">Гидро-, тепло-, звукоизоляция межэтажных перекрытий, стен и&nbsp;полов</li>
+          <li data-u="4">Высококачественная подложка под ламинат и&nbsp;под стяжку</li>
+          <li data-u="5">Утеплитель и гидроизоляция фундамента</li>
+          <li data-u="6">Теплоотражатель для контура «теплых» и&nbsp;устройство «плавающих» полов</li>
+          <li data-u="7">Тепло- и шумоизоляция для систем вентиляции и&nbsp;кондиционирования</li>
+          <li data-u="8">Шумо и теплоизоляция стен</li>
         </ol>
       </div>
     </div>
@@ -594,6 +603,25 @@
     const l = e.target.closest('[data-lightbox]');
     if (l) { e.preventDefault(); const lb = document.getElementById('lightbox'); lb.querySelector('img').src = l.href; lb.showModal(); }
   });
+
+  // Применение: точки на доме ↔ пункты списка. Сами перебираются, пока пользователь не наведёт
+  (() => {
+    const box = document.querySelector('.usage__grid'); if (!box) return;
+    const items = [...box.querySelectorAll('[data-u]')];
+    let cur = 0, timer, user = false;
+    const set = n => { cur = +n; items.forEach(el => el.classList.toggle('is-on', +el.dataset.u === cur)); box.classList.toggle('has-on', cur > 0); };
+    items.forEach(el => {
+      el.addEventListener('mouseenter', () => { user = true; clearInterval(timer); set(el.dataset.u); });
+      el.addEventListener('focus', () => { user = true; clearInterval(timer); set(el.dataset.u); });
+      el.addEventListener('click', () => { user = true; clearInterval(timer); set(el.dataset.u); });
+    });
+    box.addEventListener('mouseleave', () => set(0));
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    new IntersectionObserver(([e]) => {
+      clearInterval(timer);
+      if (e.isIntersecting && !user) { set(cur % 8 + 1); timer = setInterval(() => set(cur % 8 + 1), 2200); }
+    }, { threshold: .45 }).observe(box);
+  })();
   // Прототип: формы никуда не отправляются, показываем «спасибо»
   document.querySelectorAll('[data-form]').forEach(f => f.addEventListener('submit', e => { e.preventDefault(); f.reset(); open('success'); }));
 

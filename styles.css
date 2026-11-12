@@ -312,16 +312,36 @@ img { display: block; max-width: 100%; }
 
 /* ── Применение ── */
 .usage { background: var(--white); }
-.usage__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.usage__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: stretch; }
 .usage__media { aspect-ratio: 1; border-radius: 20px; }
-.usage__list { list-style: none; margin: 0; padding: 0; counter-reset: u; }
+/* Список ровно по высоте фото: пункты распределены от верхнего края фото до нижнего */
+.usage__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .usage__list li {
-  counter-increment: u; display: grid; grid-template-columns: 56px 1fr; align-items: baseline;
-  padding: 20px 0; border-top: 1px solid var(--line); font-size: 19px; line-height: 1.4; font-weight: 500;
+  flex: 1; display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 0;
+  padding: 6px 12px 6px 0; border-top: 1px solid var(--line); font-size: 18px; line-height: 1.35; font-weight: 500;
+  cursor: default; transition: color .25s, padding .25s;
 }
 .usage__list li:last-child { border-bottom: 1px solid var(--line); }
-.usage__list li::before { content: counter(u, decimal-leading-zero); font-size: 14px; font-weight: 600; color: var(--brand); font-variant-numeric: tabular-nums; }
+.usage__list li::before {
+  content: attr(data-u); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  font-size: 13px; font-weight: 700; color: var(--brand); background: #EEF0F8; transition: background .25s, color .25s;
+}
+.usage__list li.is-on { color: var(--brand); padding-left: 8px; }
+.usage__list li.is-on::before { background: var(--accent); color: var(--ink); }
 
+/* Точки на разрезе дома */
+.pin {
+  position: absolute; z-index: 1; width: 30px; height: 30px; margin: -15px 0 0 -15px; padding: 0;
+  display: grid; place-items: center; border: 2px solid var(--white); border-radius: 50%; cursor: pointer;
+  font: 700 13px/1 "Onest", sans-serif; color: var(--white); background: var(--brand);
+  box-shadow: 0 4px 12px rgba(20,26,61,.35); transition: transform .25s, background .25s, color .25s, opacity .25s;
+}
+.pin::after { content: ""; position: absolute; inset: -8px; border-radius: 50%; border: 2px solid var(--accent); opacity: 0; transform: scale(.6); }
+.has-on .pin { opacity: .55; }
+.pin.is-on { opacity: 1; transform: scale(1.25); background: var(--accent); color: var(--ink); z-index: 2; }
+.pin.is-on::after { animation: pin-pulse 1.4s ease-out infinite; }
+@keyframes pin-pulse { 0% { opacity: .9; transform: scale(.6); } 100% { opacity: 0; transform: scale(1.5); } }
+.ph.is-empty .pin { display: none; }
 
 .fields__icons { list-style: none; margin: 0 0 64px; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark); border-radius: 16px; overflow: hidden; }
 .fields__icons li { display: flex; flex-direction: column; gap: 18px; padding: 28px 22px 26px; background: var(--ink); font-size: 15.5px; line-height: 1.35; font-weight: 500; }
@@ -485,7 +505,8 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .discount { padding-top: 0; }
   .discount { padding-bottom: 0; }
   .usage__grid, .steps__grid, .contacts__grid { grid-template-columns: 1fr; gap: 40px; }
-  .usage__media { aspect-ratio: 4 / 3; }
+  .usage__media { aspect-ratio: 1; }
+  .usage__list li { flex: none; padding: 14px 0; }
   .footer__row { flex-wrap: wrap; gap: 20px; }
   .footer__contacts { margin-left: 0; width: 100%; order: 3; }
 }
@@ -493,7 +514,8 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .sec { padding: 64px 0; }
   .sec--ink > .cut__layers { margin-bottom: 56px; }
   .sec__title { margin-bottom: 32px; font-size: 30px; }
-  .usage__list li { font-size: 17px; grid-template-columns: 44px 1fr; padding: 16px 0; }
+  .usage__list li { font-size: 16.5px; padding: 12px 0; }
+  .pin { width: 26px; height: 26px; margin: -13px 0 0 -13px; font-size: 12px; }
   .fields__icons { grid-template-columns: repeat(2, 1fr); margin-bottom: 40px; }
   .fields__icons li { padding: 20px 16px; font-size: 14.5px; }
   .fields__list { columns: 1; }
