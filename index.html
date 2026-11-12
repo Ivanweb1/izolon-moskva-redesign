@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -184,7 +184,7 @@
       <h2 class="sec__title">Наша продукция</h2>
       <div class="catalog__grid">
 
-        <article class="card">
+        <article class="card card--wide">
           <figure class="ph card__media"><img src="assets/catalog/01-izolon-ppe.jpg" data-fallback="assets/src/old-site/catalog/01-izolon-ppe/1.jpg" alt="ИЗОЛОН ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">ИЗОЛОН ППЭ</h3>
           <dl class="card__specs">
@@ -334,20 +334,27 @@
           <div class="card__foot"><p class="card__price"><span>от</span> 150 <small>₽/м²</small></p><button class="pill pill--ink" type="button" data-order="ЭВА листовой">Заказать</button></div>
         </article>
 
-        <!-- 12-я ячейка — блок «Если вы не знаете…» со старого сайта, встал в сетку -->
-        <article class="card card--help">
-          <figure class="ph card__media" data-file="photos/help-samples.jpg"><img src="assets/photos/help-samples.jpg" alt="Образцы материалов" loading="lazy" onerror="ph(this)"></figure>
-          <h3 class="card__title">Если вы не знаете, какой именно вид материала вам нужен — оставьте заявку сейчас, и&nbsp;мы поможем сделать правильный выбор!</h3>
-          <form class="form form--stack" data-form>
-            <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
-            <input class="field" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required>
-            <label class="check"><input type="checkbox" required checked><span>Согласен с <a href="#" data-modal="consent">правилами обработки моих данных</a></span></label>
-            <button class="pill pill--accent" type="submit">Оставить заявку</button>
-          </form>
-          <p class="card__call">Позвоните нам <a href="tel:+74991366263">+7 (499) 136-62-63</a></p>
-        </article>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ══ Лид-форма «Если вы не знаете…» (со старого сайта, между каталогом и сертификатами) ══ -->
+  <section class="sec sec--ink lead" id="help">
+    <div class="cut__layers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container lead__grid">
+      <div class="lead__body">
+        <h2 class="sec__title lead__title">Если вы не знаете, какой именно вид материала вам нужен — <span>оставьте заявку сейчас,</span> и&nbsp;мы поможем сделать правильный выбор!</h2>
+        <form class="form lead__form" data-form>
+          <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+          <input class="field" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required>
+          <button class="pill pill--accent" type="submit">Оставить заявку</button>
+          <label class="check"><input type="checkbox" required checked><span>Согласен с <a href="#" data-modal="consent">правилами обработки моих данных</a></span></label>
+        </form>
+        <p class="lead__call">Позвоните нам <a href="tel:+74991366263">+7 (499) 136-62-63</a></p>
+      </div>
+      <!-- Фото: assets/photos/help-samples.jpg 4:3 (промпт в PHOTO-PROMPTS-BLOCKS.md) -->
+      <figure class="ph lead__media" data-file="photos/help-samples.jpg"><img src="assets/photos/help-samples.jpg" alt="Образцы материалов" loading="lazy" onerror="ph(this)"></figure>
     </div>
   </section>
 
@@ -463,7 +470,8 @@
       </div>
       <button class="pill pill--line-light" type="button" data-modal="callback">Заказать звонок</button>
     </div>
-    <div class="footer__seo">
+    <!-- SEO-текст со старого сайта: в коде, на странице скрыт -->
+    <div class="footer__seo" hidden>
       <p>Изолон и Изофом – это два материала, которые стали очень популярны в современном строительстве. Ведь они обладают уникальными свойствами. Купить изолон в Москве можно в нашей компании.</p>
       <p>Вспененный полиэтилен – основа для производства этих материалов. Благодаря его уникальным свойствам, изолон ППЭ очень долговечен и прочен. Отлично переносит перепады влаги, а также солнечные лучи. Изолон фольгированный чаще всего представляет собой ППЭ, покрытый специальным отражающим слоем металлизированной пленки и фольги. Именно благодаря такой технологии изолон-блок обладает высокой теплоизоляцией. Хорошие гидро- и виброизолирующие свойства – еще одни плюсы такого материала, как изолон. Шумоизоляция со вспененным пенополиэтиленом тоже будет на высоте, если вы используете Изолонтейп. Изолон успешно применяют в строительстве, также из него производят различные предметы.</p>
       <p>Изофом ППЭ по характеристикам схож с изолоном. Он довольно эластичен, что повышает его прочность. Изофом обладает температурной стойкостью до 100 градусов. Такой пенополиэтилен отлично подходит для звуко- и теплоизоляции. Утепление изолоном позволяет надолго сохранить тепло внутри здания. Также Изофом, купить который можно в нашей компании, используют в качестве подложки под обои.</p>

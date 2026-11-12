@@ -1,6 +1,6 @@
 # Фото для блоков после первого экрана
 
-Промпты для первого экрана лежат в `PHOTO-PROMPT.md`. Здесь — 15 кадров: 11 для карточек каталога, 1 для карточки «Если вы не знаете…» и 3 для блоков «Применение», «Преимущества» и «Этапы».
+Промпты для первого экрана лежат в `PHOTO-PROMPT.md`. Здесь — 15 кадров: 11 для карточек каталога, 1 для блока с формой «Если вы не знаете…» и 3 для блоков «Применение», «Преимущества» и «Этапы».
 
 ## Куда класть
 
@@ -62,9 +62,14 @@ Photorealistic commercial catalogue photo, high detail, no people, no hands, no 
 | `10-vomlex-npe.jpg` | `old-site/catalog/10-vomlex-npe/2.jpg` | Вомлекс НПЭ |
 | `11-eva.jpg` | `old-site/catalog/11-eva/3.jpg` | ЭВА листовой |
 
-**01-izolon-ppe.jpg — ИЗОЛОН ППЭ**
+**01-izolon-ppe.jpg — ИЗОЛОН ППЭ (особый формат)**
+
+На десктопе это широкая карточка-флагман: фото стоит слева на всю высоту карточки, кадр получается почти **3:5, вертикальный**. На планшете и телефоне это обычная карточка 4:3. Поэтому:
+- генерировать **вертикально 3:4, 1500×2000**;
+- рулон стоит вертикально, по центру, занимает **50–60% ширины** и **центральные 50% высоты** — тогда при обрезке до 4:3 он остаётся целым;
+- в строке 2 общего блока заменить `4:3 frame` на `3:4 vertical frame`.
 ```
-One roll of dark-grey cross-linked polyethylene foam (matte, fine-pored closed-cell surface, 10 mm thick sheet) lying on its side, the spiral end with tightly wound layers and a cardboard core turned toward the camera, the outer sheet partly unrolled flat toward the viewer. Same material and colour as the reference.
+One tall roll of dark-grey cross-linked polyethylene foam (matte, fine-pored closed-cell surface, 10 mm thick sheet) standing upright on its end, the top spiral end with tightly wound layers and a cardboard core visible from above, the outer sheet partly unrolled in a smooth curve to one side. The roll sits in the central 50% of the frame height and takes 50–60% of the frame width, with calm empty background above and below. Same material and colour as the reference.
 [каталог]
 ```
 
@@ -130,9 +135,9 @@ A fanned stack of rectangular EVA foam sheets in white, black and beige, two she
 
 ---
 
-## 2. Карточка «Если вы не знаете…» — 1 кадр
+## 2. Блок «Если вы не знаете…» — 1 кадр
 
-Кадр заменяет девушку с планшетом со старого сайта (стоковых людей убираем). Карточка тёмно-синяя, поэтому фон кадра тоже тёмный.
+Кадр заменяет девушку с планшетом со старого сайта (стоковых людей убираем). Блок с формой тёмно-синий, фото стоит справа от формы, поэтому фон кадра тоже тёмный.
 
 - `assets/photos/help-samples.jpg` — **4:3, 1600×1200**.
 - Реф по материалам: 2–3 фото из `old-site/catalog/` (например, `01/1`, `06/3`, `11/3`).

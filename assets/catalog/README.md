@@ -2,7 +2,7 @@
 
 Сюда класть 11 сгенерированных фото 4:3 (1600×1200). Имена и промпты — в PHOTO-PROMPTS-BLOCKS.md:
 
-01-izolon-ppe.jpg
+01-izolon-ppe.jpg   (вертикальный 3:4 — широкая карточка)
 02-izolontape.jpg
 03-isofom.jpg
 04-isofom-premium.jpg

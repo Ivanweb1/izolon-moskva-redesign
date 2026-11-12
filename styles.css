@@ -307,8 +307,8 @@ img { display: block; max-width: 100%; }
   font-size: 13px; color: var(--muted);
   background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(69,87,164,.06) 14px 15px);
 }
-.sec--ink .ph, .card--help .ph { background: var(--ink-2); }
-.sec--ink .ph.is-empty::after, .card--help .ph.is-empty::after { color: var(--on-dark-2); background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,.04) 14px 15px); }
+.sec--ink .ph { background: var(--ink-2); }
+.sec--ink .ph.is-empty::after { color: var(--on-dark-2); background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,.04) 14px 15px); }
 
 /* ── Применение ── */
 .usage { background: var(--white); }
@@ -350,11 +350,24 @@ img { display: block; max-width: 100%; }
 .card__price small { font-size: 15px; font-weight: 600; letter-spacing: 0; }
 .card__note { margin: 12px 12px 0; font-size: 13px; color: var(--muted); }
 
-.card--help { background: var(--ink); color: var(--white); }
-.card--help .card__title { font-size: 19px; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; }
-.card--help .form { margin: 0 12px; }
-.card__call { margin: 18px 12px 0; font-size: 14px; color: var(--on-dark-2); }
-.card__call a { display: block; margin-top: 4px; font-size: 20px; font-weight: 700; color: var(--white); }
+
+/* Флагман ИЗОЛОН ППЭ — широкая карточка на 2 колонки: 11 товаров закрывают сетку 3×4 без дыр */
+@media (min-width: 1101px) {
+  .card--wide { grid-column: span 2; display: grid; grid-template-columns: 1.1fr 1fr; grid-template-rows: auto 1fr auto; column-gap: 24px; }
+  .card--wide .card__media { grid-row: 1 / -1; aspect-ratio: auto; height: 100%; min-height: 360px; }
+  .card--wide .card__title { margin-top: 18px; font-size: 28px; }
+}
+
+/* ── Лид-форма «Если вы не знаете…» ── */
+.lead__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 64px; align-items: center; }
+.lead__title { font-size: clamp(28px, 2.7vw, 40px); line-height: 1.15; }
+.lead__title span { color: var(--accent); }
+.lead__form { grid-template-columns: 1fr 1fr auto; max-width: 720px; }
+.lead__form .pill { padding: 0 28px; }
+.lead__form .check { grid-column: 1 / -1; }
+.lead__call { margin: 32px 0 0; font-size: 14px; color: var(--on-dark-2); }
+.lead__call a { display: block; margin-top: 4px; font-size: 24px; font-weight: 700; color: var(--white); }
+.lead__media { aspect-ratio: 4 / 3; border-radius: 20px; }
 
 /* ── Формы ── */
 .form { display: grid; gap: 10px; }
@@ -368,11 +381,11 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
 .check { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.4; color: var(--muted); cursor: pointer; }
 .check input { width: 16px; height: 16px; margin: 1px 0 0; flex-shrink: 0; accent-color: var(--brand); }
 .check a { text-decoration: underline; text-underline-offset: 2px; }
-.card--help .check { color: var(--on-dark-2); }
-.card--help .field, .discount .field { border-color: transparent; }
+.lead .check { color: var(--on-dark-2); }
+.lead .field, .discount .field { border-color: transparent; }
 
 /* ── Сертификаты ── */
-.certs { padding-top: 0; }
+
 .certs__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
 .certs__row a { display: block; padding: 12px; background: var(--white); border-radius: 14px; transition: transform .25s, box-shadow .25s; }
 .certs__row a:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -18px rgba(20,26,61,.35); }
@@ -426,11 +439,9 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
 
 /* ── Подвал ── */
 .footer { background: var(--ink); color: var(--white); padding: 56px 0 40px; }
-.footer__row { display: flex; align-items: center; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--line-dark); }
+.footer__row { display: flex; align-items: center; gap: 40px; padding-bottom: 36px; margin-bottom: 28px; border-bottom: 1px solid var(--line-dark); }
 .logo--light { color: var(--white); }
 .footer__contacts { display: flex; gap: 32px; margin-left: auto; font-weight: 600; }
-.footer__seo { columns: 3; column-gap: 40px; padding: 32px 0; font-size: 13px; line-height: 1.6; color: var(--on-dark-2); }
-.footer__seo p { margin: 0 0 12px; break-inside: avoid; }
 .footer__copy { margin: 0; font-size: 13px; color: var(--on-dark-2); }
 
 /* ── Модальные окна ── */
@@ -460,14 +471,15 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .benefits__grid { grid-template-columns: repeat(2, 1fr); }
   .benefits__media { min-height: 0; aspect-ratio: 1; grid-row: auto; }
   .discount__box { grid-template-columns: 1fr; padding: 48px; }
+  .lead__grid { grid-template-columns: 1fr; gap: 48px; }
+  .lead__media { max-width: 640px; }
   .fields__list { columns: 2; }
-  .footer__seo { columns: 2; }
 }
 @media (max-width: 900px) {
   .sec { padding: 88px 0; }
   .sec--ink { padding-top: 0; }
   .sec--ink > .cut__layers { margin-bottom: 72px; }
-  .certs, .discount { padding-top: 0; }
+  .discount { padding-top: 0; }
   .discount { padding-bottom: 0; }
   .usage__grid, .steps__grid, .contacts__grid { grid-template-columns: 1fr; gap: 40px; }
   .usage__media { aspect-ratio: 4 / 3; }
@@ -493,10 +505,9 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .steps__list p { font-size: 17px; }
   .steps__cta { width: 100%; }
   .discount__box { padding: 32px 20px; border-radius: 20px; }
-  .form--grid { grid-template-columns: 1fr; }
+  .form--grid, .lead__form { grid-template-columns: 1fr; }
   .contacts__list li { font-size: 18px; }
   .contacts__map, .contacts__map iframe { min-height: 320px; }
-  .footer__seo { columns: 1; }
   .footer__contacts { flex-direction: column; gap: 10px; }
   .lightbox .modal__close { right: 0; top: -52px; }
   .modal { padding: 40px 20px 24px; }
