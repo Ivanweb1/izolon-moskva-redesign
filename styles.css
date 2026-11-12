@@ -564,3 +564,117 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .lightbox .modal__close { right: 0; top: -52px; }
   .modal { padding: 40px 20px 24px; }
 }
+
+/* ════════════ Правки по фидбэку клиента 12.11 ════════════ */
+
+/* Шапка: после первого экрана «Заказать расчёт» — жёлтая (на первом экране главная — «Оформить заказ») */
+.header__contacts > .pill { transition: background .35s, color .35s, box-shadow .35s; }
+.header.is-past .header__contacts > .pill { background: var(--accent); color: var(--ink); box-shadow: 0 6px 18px -8px rgba(255,204,31,.9); }
+.header.is-past .header__contacts > .pill:hover { background: var(--accent-hover); }
+
+/* Применение: иконки крупнее, всё по центру */
+.fields__icons li { align-items: center; text-align: center; gap: 20px; padding: 36px 16px 32px; }
+.fields__icons svg { width: 52px; height: 52px; stroke-width: 1.3; transition: transform .3s; }
+.fields__icons li:hover svg { transform: translateY(-3px); }
+
+/* Сотрудничая с нами: иконки крупнее */
+.benefit > svg { width: 44px; height: 44px; stroke-width: 1.35; }
+
+/* Каталог: галерея — миниатюры поверх низа фото, клик по фото — просмотр с листанием */
+.card__media { cursor: zoom-in; }
+.card__media > img { transition: opacity .25s; }
+.card__thumbs { position: absolute; left: 10px; right: 10px; bottom: 10px; display: flex; gap: 6px; z-index: 1; }
+.card__thumb {
+  width: 46px; height: 46px; padding: 0; border: 2px solid rgba(255,255,255,.85); border-radius: 10px; overflow: hidden;
+  background: var(--white); cursor: pointer; box-shadow: 0 4px 12px -4px rgba(20,26,61,.45); transition: border-color .2s, transform .2s;
+}
+.card__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.card__thumb:hover { transform: translateY(-2px); }
+.card__thumb.is-on { border-color: var(--accent); }
+.card__zoom {
+  position: absolute; top: 10px; right: 10px; z-index: 1; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;
+  background: rgba(255,255,255,.92); color: var(--ink); opacity: 0; transition: opacity .2s;
+}
+.card__media:hover .card__zoom { opacity: 1; }
+.card__zoom svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+@media (hover: none) { .card__zoom { opacity: 1; } }
+
+.lightbox { max-width: min(1000px, 92vw); }
+.lightbox.is-old img { background: var(--white); }
+.lightbox img { margin: 0 auto; max-width: 100%; }
+.lightbox__arrow {
+  position: absolute; top: 50%; width: 48px; height: 48px; margin-top: -24px; padding: 0; display: grid; place-items: center;
+  border: 0; border-radius: 50%; background: var(--white); color: var(--ink); cursor: pointer;
+}
+.lightbox__arrow[hidden], .lightbox__count[hidden] { display: none; }
+.lightbox__arrow--prev { left: -64px; }
+.lightbox__arrow--next { right: -64px; }
+.lightbox__arrow svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.lightbox__count { position: absolute; left: 0; right: 0; bottom: -36px; margin: 0; text-align: center; font-size: 14px; font-weight: 600; color: var(--white); }
+
+/* Мотив «торца рулона» с первого экрана: кольца-слои */
+.rings { overflow: visible; pointer-events: none; }
+.rings circle { fill: none; transform-origin: 100px 100px; }
+.rings .r1 { stroke: rgba(255,255,255,.3); stroke-width: 1.5; stroke-dasharray: 2 6; animation: roll 60s linear infinite; }
+.rings .r2 { stroke: var(--brand); stroke-width: 9; stroke-dasharray: 380 40; animation: roll 40s linear infinite reverse; }
+.rings .r3 { stroke: #8D9BD6; stroke-width: 4; stroke-dasharray: 300 30 60 30; animation: roll 30s linear infinite; }
+.rings .r4 { stroke: #C9D0EE; stroke-width: 3; stroke-dasharray: 200 20; animation: roll 50s linear infinite reverse; }
+@media (prefers-reduced-motion: reduce) { .rings circle { animation: none; } }
+
+/* в синем блоке скидки — крупное кольцо, уходит за угол */
+.discount__box { position: relative; overflow: hidden; isolation: isolate; }
+.rings--discount { position: absolute; z-index: -1; width: 520px; height: 520px; right: -170px; top: -190px; opacity: .55; }
+.rings--discount .r2 { stroke: var(--ink); }
+/* в лид-блоке — кольцо выглядывает из-за фото */
+.lead__visual { position: relative; isolation: isolate; }
+.rings--lead { position: absolute; z-index: -1; width: 300px; height: 300px; right: -90px; top: -90px; }
+.lead__visual .lead__media { position: relative; }
+
+/* Кнопка «наверх» — мини-торец рулона */
+.to-top {
+  position: fixed; right: 28px; bottom: 28px; z-index: 25; width: 60px; height: 60px; padding: 0; border: 0; border-radius: 50%;
+  display: grid; place-items: center; background: var(--ink); color: var(--accent); cursor: pointer;
+  box-shadow: 0 10px 24px -10px rgba(20,26,61,.6);
+  opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none; transition: opacity .3s, transform .3s;
+}
+.to-top.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.to-top__rings { position: absolute; inset: 4px; width: calc(100% - 8px); height: calc(100% - 8px); }
+.to-top__rings .r1 { stroke: rgba(255,255,255,.35); stroke-width: 4; stroke-dasharray: 4 10; }
+.to-top__rings .r2 { stroke-width: 12; }
+.to-top__rings .r3, .to-top__rings .r4 { stroke-width: 6; }
+.to-top__arrow { position: relative; width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+.to-top:hover .to-top__arrow { transform: translateY(-3px); }
+
+/* SEO-текст: свёрнут до первых строк, раскрывается */
+.seo { padding-top: 0; }
+.seo__grid { max-width: 920px; }
+.seo__text { position: relative; max-height: 7.5em; overflow: hidden; font-size: 15px; line-height: 1.6; color: var(--muted); transition: max-height .5s ease; }
+.seo__text p { margin: 0 0 1em; }
+.seo__text::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3.2em; background: linear-gradient(rgba(244,245,249,0), var(--bg)); transition: opacity .3s; }
+.seo__text.is-open { max-height: 60em; }
+.seo__text.is-open::after { opacity: 0; }
+.seo__more { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 0; border: 0; background: none; cursor: pointer; font: 600 15px/1 "Onest", sans-serif; color: var(--brand); }
+.seo__more svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; transition: transform .3s; }
+.seo__more[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+/* Появления при прокрутке */
+.rv { opacity: 0; transform: translateY(24px); transition: opacity .7s ease var(--d, 0ms), transform .7s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
+.rv.is-in { opacity: 1; transform: none; }
+.rv-cut i { transform: scaleX(0); transform-origin: left; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.rv-cut i:nth-child(2) { transition-delay: .08s; } .rv-cut i:nth-child(3) { transition-delay: .16s; }
+.rv-cut i:nth-child(4) { transition-delay: .24s; } .rv-cut i:nth-child(5) { transition-delay: .32s; }
+.rv-cut.is-in i { transform: none; }
+
+@media (max-width: 1100px) {
+  .lightbox__arrow--prev { left: 8px; } .lightbox__arrow--next { right: 8px; }
+}
+@media (max-width: 640px) {
+  .fields__icons li { padding: 24px 12px 22px; gap: 14px; }
+  .fields__icons svg { width: 40px; height: 40px; }
+  .benefit > svg { width: 34px; height: 34px; }
+  .benefit__link { margin-left: 48px; }
+  .card__thumb { width: 40px; height: 40px; }
+  .to-top { right: 16px; bottom: calc(84px + env(safe-area-inset-bottom)); width: 50px; height: 50px; }
+  .rings--discount { width: 340px; height: 340px; right: -150px; top: -150px; }
+  .rings--lead { width: 200px; height: 200px; right: -60px; top: -60px; }
+}

@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=17">
+<link rel="stylesheet" href="styles.css?v=18">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -194,7 +194,7 @@
       <div class="catalog__grid">
 
         <article class="card card--wide">
-          <figure class="ph card__media"><img src="assets/catalog/01-izolon-ppe.jpg" data-fallback="assets/src/old-site/catalog/01-izolon-ppe/1.jpg" alt="ИЗОЛОН ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="01-izolon-ppe"><img src="assets/catalog/01-izolon-ppe.jpg" data-fallback="assets/src/old-site/catalog/01-izolon-ppe/1.jpg" alt="ИЗОЛОН ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">ИЗОЛОН ППЭ</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 1 до 50 мм</dd></div>
@@ -208,7 +208,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/02-izolontape.jpg" data-fallback="assets/src/old-site/catalog/02-izolontape/3.jpg" alt="Изолонтейп ППЭ" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="02-izolontape"><img src="assets/catalog/02-izolontape.jpg" data-fallback="assets/src/old-site/catalog/02-izolontape/3.jpg" alt="Изолонтейп ППЭ" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Изолонтейп ППЭ</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 2 до 10 мм</dd></div>
@@ -222,7 +222,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/03-isofom.jpg" data-fallback="assets/src/old-site/catalog/03-isofom/3.jpg" alt="ИЗОФОМ в рулонах" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="03-isofom"><img src="assets/catalog/03-isofom.jpg" data-fallback="assets/src/old-site/catalog/03-isofom/3.jpg" alt="ИЗОФОМ в рулонах" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">ИЗОФОМ</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 2 до 50 мм</dd></div>
@@ -236,7 +236,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/04-isofom-premium.jpg" data-fallback="assets/src/old-site/catalog/04-isofom-premium/1.jpg" alt="ИЗОФОМ ППЭ Премиум" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="04-isofom-premium"><img src="assets/catalog/04-isofom-premium.jpg" data-fallback="assets/src/old-site/catalog/04-isofom-premium/1.jpg" alt="ИЗОФОМ ППЭ Премиум" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">ИЗОФОМ ППЭ Премиум</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 2 до 50 мм</dd></div>
@@ -250,7 +250,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/05-tube-insulation.jpg" data-fallback="assets/src/old-site/catalog/05-tube-insulation/2.jpg" alt="Трубная изоляция из пенополиэтилена" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="05-tube-insulation"><img src="assets/catalog/05-tube-insulation.jpg" data-fallback="assets/src/old-site/catalog/05-tube-insulation/2.jpg" alt="Трубная изоляция из пенополиэтилена" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Стыковая и трубная изоляция</h3>
           <dl class="card__specs">
             <div><dt>Диаметр</dt><dd>от 1 до 50 мм</dd></div>
@@ -264,7 +264,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/06-folgoizolon.jpg" data-fallback="assets/src/old-site/catalog/06-folgoizolon/3.jpg" alt="Фольгоизолон ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="06-folgoizolon"><img src="assets/catalog/06-folgoizolon.jpg" data-fallback="assets/src/old-site/catalog/06-folgoizolon/3.jpg" alt="Фольгоизолон ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Фольгоизолон ППЭ</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 2 до 10 мм</dd></div>
@@ -278,7 +278,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/07-mats-sheets.jpg" data-fallback="assets/src/old-site/catalog/07-mats-sheets/2.jpg" alt="Изолон ППЭ маты-листы" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="07-mats-sheets"><img src="assets/catalog/07-mats-sheets.jpg" data-fallback="assets/src/old-site/catalog/07-mats-sheets/2.jpg" alt="Изолон ППЭ маты-листы" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Изолон ППЭ маты-листы</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 15 до 50 мм</dd></div>
@@ -291,7 +291,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/08-damper-tape.jpg" data-fallback="assets/src/old-site/catalog/08-damper-tape/1.jpg" alt="Лента демпферная уплотнительная" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="08-damper-tape"><img src="assets/catalog/08-damper-tape.jpg" data-fallback="assets/src/old-site/catalog/08-damper-tape/1.jpg" alt="Лента демпферная уплотнительная" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Лента демпферная уплотнительная</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 2 до 10 мм</dd></div>
@@ -303,7 +303,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/09-ecoheat.jpg" data-fallback="assets/src/old-site/catalog/09-ecoheat/1.jpg" alt="Подложка под обои ЭкоХит" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="09-ecoheat"><img src="assets/catalog/09-ecoheat.jpg" data-fallback="assets/src/old-site/catalog/09-ecoheat/1.jpg" alt="Подложка под обои ЭкоХит" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Подложка под обои ЭкоХит</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>3–5 мм</dd></div>
@@ -317,7 +317,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/10-vomlex-npe.jpg" data-fallback="assets/src/old-site/catalog/10-vomlex-npe/2.jpg" alt="Вомлекс НПЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="10-vomlex-npe"><img src="assets/catalog/10-vomlex-npe.jpg" data-fallback="assets/src/old-site/catalog/10-vomlex-npe/2.jpg" alt="Вомлекс НПЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">Вомлекс НПЭ <span>(газонаполненный пенополиэтилен)</span></h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 1 до 50 мм</dd></div>
@@ -331,7 +331,7 @@
         </article>
 
         <article class="card">
-          <figure class="ph card__media"><img src="assets/catalog/11-eva.jpg" data-fallback="assets/src/old-site/catalog/11-eva/3.jpg" alt="ЭВА листовой в базовых цветах" loading="lazy" onerror="ph(this)"></figure>
+          <figure class="ph card__media" data-gallery="11-eva"><img src="assets/catalog/11-eva.jpg" data-fallback="assets/src/old-site/catalog/11-eva/3.jpg" alt="ЭВА листовой в базовых цветах" loading="lazy" onerror="ph(this)"></figure>
           <h3 class="card__title">ЭВА листовой</h3>
           <dl class="card__specs">
             <div><dt>Толщина</dt><dd>от 2,5 до 10 мм</dd></div>
@@ -363,7 +363,7 @@
         <p class="lead__call">Позвоните нам <a href="tel:+74991366263">+7 (499) 136-62-63</a></p>
       </div>
       <!-- Фото: assets/photos/help-samples.jpg 4:3 (промпт в PHOTO-PROMPTS-BLOCKS.md) -->
-      <figure class="ph lead__media" data-file="photos/help-samples.jpg"><img src="assets/photos/help-samples.jpg" alt="Образцы материалов" loading="lazy" onerror="ph(this)"></figure>
+      <div class="lead__visual"><svg class="rings rings--lead" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" class="r1"/><circle cx="100" cy="100" r="88" class="r2"/><circle cx="100" cy="100" r="81" class="r3"/><circle cx="100" cy="100" r="75" class="r4"/></svg><figure class="ph lead__media" data-file="photos/help-samples.jpg"><img src="assets/photos/help-samples.jpg" alt="Образцы материалов" loading="lazy" onerror="ph(this)"></figure></div>
     </div>
   </section>
 
@@ -427,6 +427,8 @@
   <section class="sec discount" id="discount">
     <div class="container">
       <div class="discount__box">
+        <!-- Мотив «торца рулона» с первого экрана -->
+        <svg class="rings rings--discount" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" class="r1"/><circle cx="100" cy="100" r="88" class="r2"/><circle cx="100" cy="100" r="81" class="r3"/><circle cx="100" cy="100" r="75" class="r4"/></svg>
         <div class="discount__text">
           <h2 class="sec__title">Получите лучшие цены и скидку</h2>
           <p class="discount__sub">Оставьте заявку прямо сейчас!</p>
@@ -459,6 +461,17 @@
       </div>
     </div>
   </section>
+  <!-- ══ SEO-текст со старого сайта (на старом его перекрывала вторая карта). Свёрнут, раскрывается кнопкой ══ -->
+  <section class="sec seo" id="about">
+    <div class="container seo__grid">
+      <div class="seo__text" id="seo-text">
+      <p>Изолон и Изофом – это два материала, которые стали очень популярны в современном строительстве. Ведь они обладают уникальными свойствами. Купить изолон в Москве можно в нашей компании.</p>
+      <p>Вспененный полиэтилен – основа для производства этих материалов. Благодаря его уникальным свойствам, изолон ППЭ очень долговечен и прочен. Отлично переносит перепады влаги, а также солнечные лучи. Изолон фольгированный чаще всего представляет собой ППЭ, покрытый специальным отражающим слоем металлизированной пленки и фольги. Именно благодаря такой технологии изолон-блок обладает высокой теплоизоляцией. Хорошие гидро- и виброизолирующие свойства – еще одни плюсы такого материала, как изолон. Шумоизоляция со вспененным пенополиэтиленом тоже будет на высоте, если вы используете Изолонтейп. Изолон успешно применяют в строительстве, также из него производят различные предметы.</p>
+      <p>Изофом ППЭ по характеристикам схож с изолоном. Он довольно эластичен, что повышает его прочность. Изофом обладает температурной стойкостью до 100 градусов. Такой пенополиэтилен отлично подходит для звуко- и теплоизоляции. Утепление изолоном позволяет надолго сохранить тепло внутри здания. Также Изофом, купить который можно в нашей компании, используют в качестве подложки под обои.</p>
+      </div>
+      <button class="seo__more" type="button" aria-expanded="false" aria-controls="seo-text"><span>Читать полностью</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg></button>
+    </div>
+  </section>
 </main>
 
 <div class="mobile-bar">
@@ -469,6 +482,12 @@
   <a class="pill pill--accent" href="#discount" data-order="">Оформить заказ</a>
 </div>
 
+
+<!-- Кнопка «наверх» — мини-«торец рулона», появляется после первого экрана -->
+<button class="to-top" type="button" aria-label="Наверх">
+  <svg class="rings to-top__rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" class="r1"/><circle cx="100" cy="100" r="88" class="r2"/><circle cx="100" cy="100" r="81" class="r3"/><circle cx="100" cy="100" r="75" class="r4"/></svg>
+  <svg class="to-top__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 14l6-6 6 6"/></svg>
+</button>
 
 <footer class="footer">
   <div class="container">
@@ -481,12 +500,6 @@
         <a href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru</a>
       </div>
       <button class="pill pill--line-light" type="button" data-modal="callback">Заказать звонок</button>
-    </div>
-    <!-- SEO-текст со старого сайта: в коде, на странице скрыт -->
-    <div class="footer__seo" hidden>
-      <p>Изолон и Изофом – это два материала, которые стали очень популярны в современном строительстве. Ведь они обладают уникальными свойствами. Купить изолон в Москве можно в нашей компании.</p>
-      <p>Вспененный полиэтилен – основа для производства этих материалов. Благодаря его уникальным свойствам, изолон ППЭ очень долговечен и прочен. Отлично переносит перепады влаги, а также солнечные лучи. Изолон фольгированный чаще всего представляет собой ППЭ, покрытый специальным отражающим слоем металлизированной пленки и фольги. Именно благодаря такой технологии изолон-блок обладает высокой теплоизоляцией. Хорошие гидро- и виброизолирующие свойства – еще одни плюсы такого материала, как изолон. Шумоизоляция со вспененным пенополиэтиленом тоже будет на высоте, если вы используете Изолонтейп. Изолон успешно применяют в строительстве, также из него производят различные предметы.</p>
-      <p>Изофом ППЭ по характеристикам схож с изолоном. Он довольно эластичен, что повышает его прочность. Изофом обладает температурной стойкостью до 100 градусов. Такой пенополиэтилен отлично подходит для звуко- и теплоизоляции. Утепление изолоном позволяет надолго сохранить тепло внутри здания. Также Изофом, купить который можно в нашей компании, используют в качестве подложки под обои.</p>
     </div>
     <!-- Документы по персональным данным — файлы лежат на старом сайте izolon-moskva.ru -->
     <nav class="footer__docs" aria-label="Документы">
@@ -564,26 +577,29 @@
 
 <dialog class="lightbox" id="lightbox">
   <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-  <img alt="Сертификат">
+  <img alt="">
+  <button class="lightbox__arrow lightbox__arrow--prev" type="button" data-dir="-1" aria-label="Предыдущее фото" hidden><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <button class="lightbox__arrow lightbox__arrow--next" type="button" data-dir="1" aria-label="Следующее фото" hidden><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+  <p class="lightbox__count" hidden></p>
 </dialog>
 
 <!-- ══ Иконки (свои, линейные, 24×24) ══ -->
 <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <symbol id="i-build" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M9 11h.01M15 11h.01"/></symbol>
-  <symbol id="i-shoe" viewBox="0 0 24 24"><path d="M3 17V7h5l1 4 5 1.5c4 1.2 7 2.3 7 4.5v1H3zM3 20h18M8 11h2M9.5 13.5h2"/></symbol>
-  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v7h-3M7 14h10v7H7z"/></symbol>
-  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16H3v-4l2-5h11l3 5h2v4h-2M9 16h6M3 12h18"/><circle cx="7" cy="16.5" r="2"/><circle cx="17" cy="16.5" r="2"/></symbol>
-  <symbol id="i-sport" viewBox="0 0 24 24"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></symbol>
-  <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2.2 1-3.5 3.5-3.5 7v3H17"/></symbol>
-  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
-  <symbol id="i-stock" viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M7 21v-8h10v8M7 17h10"/></symbol>
+  <symbol id="i-build" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2M10 6h4M10 10h4M10 14h4M10 18h4"/></symbol>
+  <symbol id="i-shoe" viewBox="0 0 24 24"><path d="M2.5 17.5v-9a1 1 0 0 1 1-1h3.6a1 1 0 0 1 1 .8l.5 2.4c2.4 1.3 5.3 1.9 8.2 2.2a4 4 0 0 1 3.7 4v.6a1 1 0 0 1-1 1H3.5a1 1 0 0 1-1-1z"/><path d="M2.5 15.5h19M10 11.3l1.2-1.6M13 12.2l1.2-1.6"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 9V3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v6"/><rect x="6" y="14" width="12" height="8" rx="1"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 17H3.5a1 1 0 0 1-1-1v-3.2a2 2 0 0 1 .6-1.4L5 9.5l1.6-3.3A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.8 1.2L19 9.5l1.9 1.9a2 2 0 0 1 .6 1.4V16a1 1 0 0 1-1 1H19M9 17h6M5 9.5h14"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></symbol>
+  <symbol id="i-sport" viewBox="0 0 24 24"><rect x="5" y="6" width="3" height="12" rx="1"/><rect x="16" y="6" width="3" height="12" rx="1"/><rect x="2" y="9" width="3" height="6" rx="1"/><rect x="19" y="9" width="3" height="6" rx="1"/><path d="M8 12h8"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 2v20M4 2v6a3 3 0 0 0 6 0V2M17 22V2c-2.5 1.2-4 4-4 8v4h4"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
+  <symbol id="i-stock" viewBox="0 0 24 24"><path d="M18 21V10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v11"/><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35a2 2 0 0 1 1.26-1.86l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 13h12M6 17h12"/></symbol>
   <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
-  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V5h4l1 16M3 21h18M7 17h2M12 17h2"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M7 18h1M12 18h1M17 18h1"/></symbol>
   <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v3l2 1"/></symbol>
   <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
   <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></symbol>
   <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l3 3.5V16h-7"/><circle cx="6" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></symbol>
-  <symbol id="i-scale" viewBox="0 0 24 24"><rect x="3" y="13" width="7" height="7" rx="1"/><rect x="12" y="5" width="9" height="15" rx="1"/><path d="M3 20h18"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><rect x="10" y="3" width="12" height="17" rx="1.5"/><path d="M14 3v4.5h4V3"/><rect x="2" y="12" width="8" height="8" rx="1.2"/><path d="M4.8 12v2.5h2.4V12M1.5 21h21"/></symbol>
   <symbol id="i-form" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h5"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
   <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
@@ -604,7 +620,7 @@
     if (m) { e.preventDefault(); open(m.dataset.modal); return; }
     if (e.target.closest('[data-close]') || e.target.tagName === 'DIALOG') { e.target.closest('dialog').close(); return; }
     const l = e.target.closest('[data-lightbox]');
-    if (l) { e.preventDefault(); const lb = document.getElementById('lightbox'); lb.querySelector('img').src = l.href; lb.showModal(); }
+    if (l) { e.preventDefault(); showLightbox([{ src: l.href, alt: l.querySelector('img').alt, old: false }], 0); }
   });
 
   // Применение: точки на доме ↔ пункты списка. Сами перебираются, пока пользователь не наведёт
@@ -624,6 +640,88 @@
       clearInterval(timer);
       if (e.isIntersecting && !user) { set(cur % 8 + 1); timer = setInterval(() => set(cur % 8 + 1), 2200); }
     }, { threshold: .45 }).observe(box);
+  })();
+
+  // ── Лайтбокс с листанием (сертификаты — одно фото, каталог — галерея товара) ──
+  const lb = document.getElementById('lightbox'), lbImg = lb.querySelector('img'), lbCount = lb.querySelector('.lightbox__count');
+  let lbList = [], lbCur = 0;
+  const lbShow = i => {
+    lbCur = (i + lbList.length) % lbList.length; const it = lbList[lbCur];
+    lbImg.src = it.src; lbImg.alt = it.alt || ''; lb.classList.toggle('is-old', !!it.old);
+    lbCount.textContent = (lbCur + 1) + ' / ' + lbList.length;
+  };
+  function showLightbox(list, i) {
+    lbList = list; const many = list.length > 1;
+    lb.querySelectorAll('.lightbox__arrow').forEach(a => a.hidden = !many); lbCount.hidden = !many;
+    lbShow(i); if (!lb.open) lb.showModal();
+  }
+  lb.querySelectorAll('.lightbox__arrow').forEach(a => a.addEventListener('click', () => lbShow(lbCur + +a.dataset.dir)));
+  lb.addEventListener('keydown', e => { if (lbList.length > 1 && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) lbShow(lbCur + (e.key === 'ArrowLeft' ? -1 : 1)); });
+  let lbX = null;
+  lb.addEventListener('touchstart', e => { lbX = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => { if (lbX === null || lbList.length < 2) return; const dx = e.changedTouches[0].clientX - lbX; lbX = null; if (Math.abs(dx) > 40) lbShow(lbCur + (dx < 0 ? 1 : -1)); });
+
+  // ── Каталог: несколько фото на товар. Первое — новое фото, дальше 4 фото со старого сайта ──
+  document.querySelectorAll('[data-gallery]').forEach(fig => {
+    const main = fig.querySelector('img'), key = fig.dataset.gallery;
+    const title = fig.closest('.card').querySelector('.card__title').firstChild.textContent.trim();
+    const list = [{ src: main.getAttribute('src'), old: false }];
+    for (let n = 1; n <= 4; n++) list.push({ src: `assets/src/old-site/catalog/${key}/${n}.jpg`, old: true });
+    list.forEach((it, i) => it.alt = `${title} — фото ${i + 1}`);
+    let cur = 0;
+    const thumbs = document.createElement('div'); thumbs.className = 'card__thumbs';
+    const set = i => {
+      cur = i; const it = list[i];
+      main.src = it.src; fig.classList.toggle('is-old', it.old);
+      btns.forEach((b, k) => b.classList.toggle('is-on', k === i));
+    };
+    const btns = list.map((it, i) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'card__thumb' + (i ? '' : ' is-on');
+      b.setAttribute('aria-label', 'Фото ' + (i + 1));
+      b.innerHTML = `<img src="${it.src}" alt="" loading="lazy">`;
+      b.querySelector('img').onerror = () => { b.remove(); it.dead = true; };
+      b.addEventListener('click', e => { e.stopPropagation(); set(i); });
+      thumbs.append(b); return b;
+    });
+    const zoom = document.createElement('span'); zoom.className = 'card__zoom'; zoom.setAttribute('aria-hidden', 'true');
+    zoom.innerHTML = '<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/></svg>';
+    fig.append(thumbs, zoom);
+    fig.addEventListener('click', () => { const live = list.filter(x => !x.dead); showLightbox(live, Math.max(0, live.indexOf(list[cur]))); });
+  });
+
+  // ── Кнопка «наверх» + шапка: после первого экрана кнопка «Заказать расчёт» становится жёлтой ──
+  (() => {
+    const hero = document.querySelector('.hero'), up = document.querySelector('.to-top'), hdr = document.querySelector('.header');
+    new IntersectionObserver(([e]) => {
+      const past = !e.isIntersecting && e.boundingClientRect.top < 0;
+      up.classList.toggle('is-on', past); hdr.classList.toggle('is-past', past);
+    }, { rootMargin: '-120px 0px 0px 0px' }).observe(hero);
+    up.addEventListener('click', () => window.scrollTo({ top: 0, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+  })();
+
+  // ── SEO-текст: свернуть/развернуть ──
+  (() => {
+    const btn = document.querySelector('.seo__more'), box = document.getElementById('seo-text'); if (!btn) return;
+    btn.addEventListener('click', () => {
+      const o = box.classList.toggle('is-open'); btn.setAttribute('aria-expanded', o);
+      btn.querySelector('span').textContent = o ? 'Свернуть' : 'Читать полностью';
+    });
+  })();
+
+  // ── Простые появления при прокрутке: заголовки, карточки, пункты, полосы «среза» ──
+  (() => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+    const groups = ['.sec__title', '.usage__list li', '.usage__media', '.fields__icons li', '.fields__list li', '.catalog__grid .card', '.lead__body', '.lead__visual',
+      '.certs__row a', '.benefits__band', '.benefit', '.steps__media', '.steps__list li', '.steps__cta', '.discount__box', '.contacts__info', '.contacts__map', '.seo__grid'];
+    const els = [];
+    groups.forEach(sel => document.querySelectorAll(sel).forEach(el => {
+      const sib = [...el.parentNode.children].filter(x => x.matches(sel));
+      el.style.setProperty('--d', Math.min(sib.indexOf(el), 7) * 70 + 'ms');
+      el.classList.add('rv'); els.push(el);
+    }));
+    document.querySelectorAll('.sec--ink > .cut__layers').forEach(el => { el.classList.add('rv-cut'); els.push(el); });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(el => io.observe(el));
   })();
   // Прототип: формы никуда не отправляются, показываем «спасибо»
   document.querySelectorAll('[data-form]').forEach(f => f.addEventListener('submit', e => { e.preventDefault(); f.reset(); open('success'); }));
