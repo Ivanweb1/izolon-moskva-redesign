@@ -8,7 +8,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
+<script>
+  // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
+  function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
+</script>
 </head>
 <body>
 
@@ -34,7 +38,7 @@
         <span class="hphone__num">+7 (499) 136-62-63</span>
         <span class="hphone__sub">с 9:00 до 18:00 мск</span>
       </a>
-      <a class="pill pill--ink" href="#calc">Заказать расчёт</a>
+      <a class="pill pill--ink" href="#discount" data-order="">Заказать расчёт</a>
     </div>
 
     <button class="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span><span></span></button>
@@ -54,7 +58,7 @@
       <div class="drawer__contacts">
         <a href="tel:+74991366263">+7 (499) 136-62-63 <span>с 9:00 до 18:00 мск</span></a>
         <a href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru <span>отвечаем на все письма</span></a>
-        <a class="pill pill--ink drawer__cta" href="#calc">Заказать расчёт</a>
+        <a class="pill pill--ink drawer__cta" href="#discount" data-order="">Заказать расчёт</a>
       </div>
     </div>
   </div>
@@ -74,7 +78,7 @@
       <h1 class="hero__title">Шумоизоляция<br> нового поколения</h1>
       <p class="hero__lead"><b>Получите в течение 1 часа.</b> Розница от рулона и опт. Весь спектр ИЗОЛОН, ИЗОФОМ, ЭВА в наличии!</p>
       <div class="hero__actions">
-        <a class="pill pill--accent pill--lg" href="#order">Оформить заказ</a>
+        <a class="pill pill--accent pill--lg" href="#discount" data-order="">Оформить заказ</a>
         <a class="hero__link" href="#catalog">Каталог продукции
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
@@ -117,6 +121,325 @@
       </div>
     </div>
   </section>
+
+  <!-- ══ Применение ══ -->
+  <section class="sec usage" id="usage">
+    <div class="container">
+      <h2 class="sec__title usage__title">Сшитый пенополиэтилен (ППЭ) Изолон, Изофом, идеально применяется&nbsp;как:</h2>
+      <div class="usage__grid">
+        <!-- Фото: assets/photos/usage-house.jpg 1:1 (промпт в PHOTO-PROMPTS.md) -->
+        <figure class="ph usage__media" data-file="photos/usage-house.jpg">
+          <img src="assets/photos/usage-house.jpg" alt="Разрез дома: где работает изоляция из сшитого пенополиэтилена" loading="lazy" onerror="ph(this)">
+        </figure>
+        <ol class="usage__list">
+          <li>Гидро и теплоизоляция кровли</li>
+          <li>Виброизоляция</li>
+          <li>Гидро-, тепло-, звукоизоляция межэтажных перекрытий, стен и&nbsp;полов</li>
+          <li>Высококачественная подложка под ламинат и&nbsp;под стяжку</li>
+          <li>Утеплитель и гидроизоляция фундамента</li>
+          <li>Теплоотражатель для контура «теплых» и&nbsp;устройство «плавающих» полов</li>
+          <li>Тепло- и шумоизоляция для систем вентиляции и&nbsp;кондиционирования</li>
+          <li>Шумо и теплоизоляция стен</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--ink fields">
+    <div class="cut__layers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container">
+      <h2 class="sec__title">Применение</h2>
+      <ul class="fields__icons">
+        <li><svg><use href="#i-build"/></svg>Строительство</li>
+        <li><svg><use href="#i-shoe"/></svg>Обувная промышленность</li>
+        <li><svg><use href="#i-print"/></svg>Полиграфия</li>
+        <li><svg><use href="#i-car"/></svg>Автомобильная промышленность</li>
+        <li><svg><use href="#i-sport"/></svg>Спорт</li>
+        <li><svg><use href="#i-food"/></svg>Пищевая промышленность</li>
+        <li><svg><use href="#i-gear"/></svg>Машиностроение</li>
+      </ul>
+      <ul class="fields__list">
+        <li>Укрывной утеплитель для зимнего бетонирования и монолитных работ</li>
+        <li>Высококачественная подложка под ламинат и под стяжку</li>
+        <li>Гидро-, тепло-, звукоизоляция межэтажных перекрытий, стен и полов</li>
+        <li>Теплоотражатель для контура «теплых» и устройство «плавающих» полов</li>
+        <li>Тепло- и шумоизоляция для систем вентиляции и кондиционирования</li>
+        <li>Виброизоляция</li>
+        <li>В конструкциях спортивных матов</li>
+        <li>Изготовление уплотнителей и ложементов</li>
+        <li>Морской транспорт</li>
+        <li>Машиностроение</li>
+        <li>Спортивные товары упаковка</li>
+        <li>Звуко-шумо-виброизоляция для автомобильной промышленности</li>
+        <li>Кожгалантерейная и обувная промышленность</li>
+        <li>Полиграфическая промышленность</li>
+        <li>Пищевая промышленность</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══ Каталог: одна сетка карточек. Фото assets/catalog/NN-*.jpg 4:3; пока их нет — показывается фото со старого сайта ══ -->
+  <section class="sec catalog" id="catalog">
+    <div class="container">
+      <h2 class="sec__title">Наша продукция</h2>
+      <div class="catalog__grid">
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/01-izolon-ppe.jpg" data-fallback="assets/src/old-site/catalog/01-izolon-ppe/1.jpg" alt="ИЗОЛОН ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">ИЗОЛОН ППЭ</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 1 до 50 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 25 до 200 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>1,5 м</dd></div>
+            <div><dt>Размер листа</dt><dd>2 м × 1 м</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,036 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>мелкопористый, микропористый</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 100 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="Изолон">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/02-izolontape.jpg" data-fallback="assets/src/old-site/catalog/02-izolontape/3.jpg" alt="Изолонтейп ППЭ" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Изолонтейп ППЭ</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 2 до 10 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 25 до 33 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>1,0 м</dd></div>
+            <div><dt>Размер листа</dt><dd>1 м × 1,2 м</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,036 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>микропористый</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 145 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="Изолонтейп">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/03-isofom.jpg" data-fallback="assets/src/old-site/catalog/03-isofom/3.jpg" alt="ИЗОФОМ в рулонах" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">ИЗОФОМ</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 2 до 50 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 25 до 100 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>1,5 м</dd></div>
+            <div><dt>Размер листа</dt><dd>2 м × 1 м</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,030 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>поры среднего размера</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 60 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="Изофом">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/04-isofom-premium.jpg" data-fallback="assets/src/old-site/catalog/04-isofom-premium/1.jpg" alt="ИЗОФОМ ППЭ Премиум" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">ИЗОФОМ ППЭ Премиум</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 2 до 50 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 25 до 100 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>1,5 м</dd></div>
+            <div><dt>Размер листа</dt><dd>2 м × 1 м</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,030 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>мелкопористый, микропористый</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 90 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="ИЗОФОМ ППЭ Премиум">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/05-tube-insulation.jpg" data-fallback="assets/src/old-site/catalog/05-tube-insulation/2.jpg" alt="Трубная изоляция из пенополиэтилена" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Стыковая и трубная изоляция</h3>
+          <dl class="card__specs">
+            <div><dt>Диаметр</dt><dd>от 1 до 50 мм</dd></div>
+            <div><dt>Толщина стенки</dt><dd>от 6 до 20 мм</dd></div>
+            <div><dt>Группа горючести</dt><dd>Г1</dd></div>
+            <div><dt>t°C применения</dt><dd>от −60 °C до +80 °C</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,036 Вт/мК</dd></div>
+            <div><dt>Водопоглощение по объему (24 часа)</dt><dd>2%</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 10 <small>руб/пог.&nbsp;м</small></p><button class="pill pill--ink" type="button" data-order="Стыковая и трубная изоляция">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/06-folgoizolon.jpg" data-fallback="assets/src/old-site/catalog/06-folgoizolon/3.jpg" alt="Фольгоизолон ППЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Фольгоизолон ППЭ</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 2 до 10 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 25 до 33 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>1,2 м</dd></div>
+            <div><dt>Материал покрытия</dt><dd>ал. фольга/металл. пленка</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,036 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>мелкопористый, плотный</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 140 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="Фольгоизолон">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/07-mats-sheets.jpg" data-fallback="assets/src/old-site/catalog/07-mats-sheets/2.jpg" alt="Изолон ППЭ маты-листы" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Изолон ППЭ маты-листы</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 15 до 50 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 25 до 33 кг/м³</dd></div>
+            <div><dt>Размер листа</dt><dd>2 м × 1 м, 2 м × 1,4 м</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,036 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>плотные, мелкопористые</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 950 <small>руб/лист</small></p><button class="pill pill--ink" type="button" data-order="Изолон ППЭ маты-листы">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/08-damper-tape.jpg" data-fallback="assets/src/old-site/catalog/08-damper-tape/1.jpg" alt="Лента демпферная уплотнительная" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Лента демпферная уплотнительная</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 2 до 10 мм</dd></div>
+            <div><dt>Плотность</dt><dd>ППЭ или НПЭ</dd></div>
+            <div><dt>Ширина ленты</dt><dd>от 10 до 200 мм</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,036 Вт/мК</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 10 <small>руб/пог.&nbsp;м</small></p><button class="pill pill--ink" type="button" data-order="Лента демпферная">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/09-ecoheat.jpg" data-fallback="assets/src/old-site/catalog/09-ecoheat/1.jpg" alt="Подложка под обои ЭкоХит" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Подложка под обои ЭкоХит</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>3–5 мм</dd></div>
+            <div><dt>Длина рулона</dt><dd>14 м</dd></div>
+            <div><dt>Плотность</dt><dd>от 33 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>0,5 м</dd></div>
+            <div><dt>В рулоне</dt><dd>7 м²</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 215 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="Подложка под обои">Заказать</button></div>
+          <p class="card__note">Цена указана за упаковку, в упаковке — 2 рулона</p>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/10-vomlex-npe.jpg" data-fallback="assets/src/old-site/catalog/10-vomlex-npe/2.jpg" alt="Вомлекс НПЭ в рулоне" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Вомлекс НПЭ <span>(газонаполненный пенополиэтилен)</span></h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 1 до 50 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 18 до 25 кг/м³</dd></div>
+            <div><dt>Ширина рулона</dt><dd>1,05 м</dd></div>
+            <div><dt>Размер листа</dt><dd>2 м × 1 м</dd></div>
+            <div><dt>Теплопроводность</dt><dd>0,044 Вт/мК</dd></div>
+            <div><dt>Структура</dt><dd>волнистый, крупнопористый</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 25 <small>руб/м²</small></p><button class="pill pill--ink" type="button" data-order="Изолон НПЭ">Заказать</button></div>
+        </article>
+
+        <article class="card">
+          <figure class="ph card__media"><img src="assets/catalog/11-eva.jpg" data-fallback="assets/src/old-site/catalog/11-eva/3.jpg" alt="ЭВА листовой в базовых цветах" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">ЭВА листовой</h3>
+          <dl class="card__specs">
+            <div><dt>Толщина</dt><dd>от 2,5 до 10 мм</dd></div>
+            <div><dt>Плотность</dt><dd>от 45 до 55 шор</dd></div>
+            <div><dt>Размер листа</dt><dd>2,25 × 1,15 м</dd></div>
+            <div><dt>Структура</dt><dd>гладкий и с тиснением</dd></div>
+            <div><dt>Базовые цвета</dt><dd>белый, черный, бежевый +14 цветов под заказ</dd></div>
+          </dl>
+          <div class="card__foot"><p class="card__price"><span>от</span> 150 <small>₽/м²</small></p><button class="pill pill--ink" type="button" data-order="ЭВА листовой">Заказать</button></div>
+        </article>
+
+        <!-- 12-я ячейка — блок «Если вы не знаете…» со старого сайта, встал в сетку -->
+        <article class="card card--help">
+          <figure class="ph card__media" data-file="photos/help-samples.jpg"><img src="assets/photos/help-samples.jpg" alt="Образцы материалов" loading="lazy" onerror="ph(this)"></figure>
+          <h3 class="card__title">Если вы не знаете, какой именно вид материала вам нужен — оставьте заявку сейчас, и&nbsp;мы поможем сделать правильный выбор!</h3>
+          <form class="form form--stack" data-form>
+            <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+            <input class="field" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required>
+            <label class="check"><input type="checkbox" required checked><span>Согласен с <a href="#" data-modal="consent">правилами обработки моих данных</a></span></label>
+            <button class="pill pill--accent" type="submit">Оставить заявку</button>
+          </form>
+          <p class="card__call">Позвоните нам <a href="tel:+74991366263">+7 (499) 136-62-63</a></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Сертификаты ══ -->
+  <section class="sec certs" id="certs">
+    <div class="container">
+      <h2 class="sec__title">Высокие стандарты качества</h2>
+      <div class="certs__row">
+        <a href="assets/certs/cert-1-full.jpg" data-lightbox><img src="assets/certs/cert-1.jpg" alt="Сертификат 1" loading="lazy" width="450" height="640"></a>
+        <a href="assets/certs/cert-2.jpg" data-lightbox><img src="assets/certs/cert-2.jpg" alt="Сертификат 2" loading="lazy" width="450" height="640"></a>
+        <a href="assets/certs/cert-3.jpg" data-lightbox><img src="assets/certs/cert-3.jpg" alt="Сертификат 3" loading="lazy" width="450" height="640"></a>
+        <a href="assets/certs/cert-4.jpg" data-lightbox><img src="assets/certs/cert-4.jpg" alt="Сертификат 4" loading="lazy" width="450" height="640"></a>
+        <a href="assets/certs/cert-5.jpg" data-lightbox><img src="assets/certs/cert-5.jpg" alt="Сертификат 5" loading="lazy" width="450" height="640"></a>
+        <a href="assets/certs/cert-6.jpg" data-lightbox><img src="assets/certs/cert-6.jpg" alt="Сертификат 6" loading="lazy" width="450" height="640"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Преимущества ══ -->
+  <section class="sec benefits" id="benefits">
+    <div class="container">
+      <h2 class="sec__title">Сотрудничая с нами, Вы&nbsp;получите высокий уровень сервиса!</h2>
+      <div class="benefits__grid">
+        <figure class="ph benefits__media" data-file="photos/benefits-stock.jpg"><img src="assets/photos/benefits-stock.jpg" alt="Склад: рулоны пенополиэтилена на стеллажах" loading="lazy" onerror="ph(this)"></figure>
+        <div class="benefit"><svg><use href="#i-stock"/></svg><p>товар всегда в наличии</p></div>
+        <div class="benefit"><svg><use href="#i-clock"/></svg><p>отгрузка в течение часа</p></div>
+        <div class="benefit"><svg><use href="#i-factory"/></svg><p>прямые поставки с заводов-изготовителей</p></div>
+        <div class="benefit"><svg><use href="#i-calendar"/></svg><p>отсрочка платежа для постоянных клиентов</p></div>
+        <div class="benefit"><svg><use href="#i-shield"/></svg><p>гарантия качества на весь ассортимент товара</p></div>
+        <div class="benefit"><svg><use href="#i-percent"/></svg><p>гибкая ценовая политика и дополнительные скидки постоянным клиентам</p><button class="benefit__link" type="button" data-modal="callback">Получить цену <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button></div>
+        <div class="benefit"><svg><use href="#i-truck"/></svg><p>широко развитая и оперативная логистика – доставка в день оплаты</p></div>
+        <div class="benefit"><svg><use href="#i-scale"/></svg><p>ответственный подход к выполнению как малых так и крупных заказов</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Этапы ══ -->
+  <section class="sec sec--ink steps" id="steps">
+    <div class="cut__layers" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container steps__grid">
+      <div class="steps__head">
+        <h2 class="sec__title">Этапы взаимодействия</h2>
+        <figure class="ph steps__media" data-file="photos/steps-shipping.jpg"><img src="assets/photos/steps-shipping.jpg" alt="Отгрузка рулонов со склада" loading="lazy" onerror="ph(this)"></figure>
+      </div>
+      <div>
+        <ol class="steps__list">
+          <li><span class="steps__num">1</span><svg><use href="#i-form"/></svg><p>Вы оставляете заявку</p></li>
+          <li><span class="steps__num">2</span><svg><use href="#i-phone"/></svg><p>Наш менеджер связывается с Вами и выясняет все детали</p></li>
+          <li><span class="steps__num">3</span><svg><use href="#i-card"/></svg><p>Вы оплачиваете счет</p></li>
+          <li><span class="steps__num">4</span><svg><use href="#i-box"/></svg><p>Получаете товар (доставка или самовывоз) и документы</p></li>
+        </ol>
+        <button class="pill pill--accent pill--lg steps__cta" type="button" data-order="">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Скидка ══ -->
+  <section class="sec discount" id="discount">
+    <div class="container">
+      <div class="discount__box">
+        <div class="discount__text">
+          <h2 class="sec__title">Получите лучшие цены и скидку</h2>
+          <p class="discount__sub">Оставьте заявку прямо сейчас!</p>
+          <p class="discount__call">Позвоните нам <a href="tel:+74991366263">+7 (499) 136-62-63</a></p>
+        </div>
+        <form class="form form--grid" data-form>
+          <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+          <input class="field" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required>
+          <input class="field" type="email" name="email" placeholder="Ваш e-mail" autocomplete="email">
+          <button class="pill pill--accent" type="submit">Оставить заявку</button>
+          <label class="check"><input type="checkbox" required checked><span>Согласен с <a href="#" data-modal="consent">правилами обработки моих данных</a></span></label>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ Контакты ══ -->
+  <section class="sec contacts" id="contacts">
+    <div class="container contacts__grid">
+      <div class="contacts__info">
+        <h2 class="sec__title">Контакты</h2>
+        <ul class="contacts__list">
+          <li><span>Адрес</span>г.Москва, ул.3-я Хорошевская, д.18, к.1</li>
+          <li><span>Телефон</span><a href="tel:+74991366263">+7 (499) 136-62-63</a></li>
+          <li><span>Почта</span><a href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru</a></li>
+        </ul>
+      </div>
+      <div class="contacts__map">
+        <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B0%2C%203-%D1%8F%20%D0%A5%D0%BE%D1%80%D0%BE%D1%88%D1%91%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2018%D0%BA1&amp;z=16" title="Карта: ул. 3-я Хорошевская, д.18, к.1" loading="lazy" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
 </main>
 
 <div class="mobile-bar">
@@ -124,12 +447,136 @@
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>
     +7 (499) 136-62-63
   </a>
-  <a class="pill pill--accent" href="#order">Оформить заказ</a>
+  <a class="pill pill--accent" href="#discount" data-order="">Оформить заказ</a>
 </div>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__row">
+      <a class="logo logo--light" href="#" aria-label="Сшитый пенополиэтилен">
+        <span>Сшитый</span><img class="logo__icon" src="assets/logo-roll.png" alt="" width="39" height="33"><span>Пенополиэтилен</span>
+      </a>
+      <div class="footer__contacts">
+        <a href="tel:+74991366263">+7 (499) 136-62-63</a>
+        <a href="mailto:zakaz@izolon-moskva.ru">zakaz@izolon-moskva.ru</a>
+      </div>
+      <button class="pill pill--line-light" type="button" data-modal="callback">Заказать звонок</button>
+    </div>
+    <div class="footer__seo">
+      <p>Изолон и Изофом – это два материала, которые стали очень популярны в современном строительстве. Ведь они обладают уникальными свойствами. Купить изолон в Москве можно в нашей компании.</p>
+      <p>Вспененный полиэтилен – основа для производства этих материалов. Благодаря его уникальным свойствам, изолон ППЭ очень долговечен и прочен. Отлично переносит перепады влаги, а также солнечные лучи. Изолон фольгированный чаще всего представляет собой ППЭ, покрытый специальным отражающим слоем металлизированной пленки и фольги. Именно благодаря такой технологии изолон-блок обладает высокой теплоизоляцией. Хорошие гидро- и виброизолирующие свойства – еще одни плюсы такого материала, как изолон. Шумоизоляция со вспененным пенополиэтиленом тоже будет на высоте, если вы используете Изолонтейп. Изолон успешно применяют в строительстве, также из него производят различные предметы.</p>
+      <p>Изофом ППЭ по характеристикам схож с изолоном. Он довольно эластичен, что повышает его прочность. Изофом обладает температурной стойкостью до 100 градусов. Такой пенополиэтилен отлично подходит для звуко- и теплоизоляции. Утепление изолоном позволяет надолго сохранить тепло внутри здания. Также Изофом, купить который можно в нашей компании, используют в качестве подложки под обои.</p>
+    </div>
+    <p class="footer__copy">© 2026 г. Все права защищены. Любое неразрешенное копирование материалов этого сайта запрещено.</p>
+  </div>
+</footer>
+
+<!-- ══ Модальные окна (тексты со старого сайта) ══ -->
+<dialog class="modal" id="modal-callback">
+  <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+  <h2 class="modal__title">Заказать обратный звонок</h2>
+  <form class="form form--stack" data-form>
+    <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+    <input class="field" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required>
+    <label class="check"><input type="checkbox" required checked><span>Согласен с <a href="#" data-modal="consent">правилами обработки моих данных</a></span></label>
+    <button class="pill pill--accent" type="submit">Оставить заявку</button>
+  </form>
+  <p class="modal__foot">Мы свяжемся с вами в течение 15&nbsp;минут</p>
+</dialog>
+
+<dialog class="modal" id="modal-order">
+  <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+  <h2 class="modal__title">Узнать цены</h2>
+  <form class="form form--stack" data-form>
+    <input class="field" type="text" name="name" placeholder="Ваше имя" autocomplete="name">
+    <input class="field" type="tel" name="phone" placeholder="Ваш телефон" autocomplete="tel" required>
+    <input class="field" type="email" name="email" placeholder="Ваш e-mail" autocomplete="email">
+    <select class="field" name="type">
+      <option value="" selected>Интересующая продукция</option>
+      <option>Изолон</option>
+      <option>Изолонтейп</option>
+      <option>Изофом</option>
+      <option>ИЗОФОМ ППЭ Премиум</option>
+      <option>Стыковая и трубная изоляция</option>
+      <option>Фольгоизолон</option>
+      <option>Изолон ППЭ маты-листы</option>
+      <option>Лента демпферная</option>
+      <option>Подложка под обои</option>
+      <option>Изолон НПЭ</option>
+      <option>ЭВА листовой</option>
+    </select>
+    <label class="check"><input type="checkbox" required checked><span>Согласен с <a href="#" data-modal="consent">правилами обработки моих данных</a></span></label>
+    <button class="pill pill--accent" type="submit">Оставить заявку</button>
+  </form>
+  <p class="modal__foot">Мы свяжемся с вами в течение 15&nbsp;минут</p>
+</dialog>
+
+<dialog class="modal" id="modal-success">
+  <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+  <h2 class="modal__title">Спасибо, заявка отправлена</h2>
+  <p class="modal__foot">Мы свяжемся с вами в течение 15&nbsp;минут</p>
+</dialog>
+
+<dialog class="modal modal--text" id="modal-consent">
+  <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+  <h2 class="modal__title">Согласие на обработку персональных данных</h2>
+  <div class="modal__body">
+    <p>Настоящим в соответствии с Федеральным законом № 152-ФЗ «О персональных данных» от 27.07.2006 года свободно, своей волей и в своем интересе выражаю свое безусловное согласие на обработку моих персональных данных, зарегистрированным в соответствии с законодательством РФ по адресу: ООО «СТРОЙБИЗНЕСАЛЬЯНС» (ИНН 7734395394, 123298, Москва, ул. 3-я Хорошёвская, д. 18, к. 2).</p>
+    <p>Персональные данные - любая информация, относящаяся к определенному или определяемому на основании такой информации физическому лицу.</p>
+    <p>Настоящее Согласие выдано мною на обработку следующих персональных данных: Телефон.</p>
+    <p>Согласие дано Оператору для совершения следующих действий с моими персональными данными с использованием средств автоматизации и/или без использования таких средств: сбор, систематизация, накопление, хранение, уточнение (обновление, изменение), использование, обезличивание, а также осуществление любых иных действий, предусмотренных действующим законодательством РФ как неавтоматизированными, так и автоматизированными способами.</p>
+    <p>Данное согласие дается Оператору для обработки моих персональных данных в следующих целях: предоставление мне услуг/работ; направление в мой адрес уведомлений, касающихся предоставляемых услуг/работ; подготовка и направление ответов на мои запросы; направление в мой адрес информации, в том числе рекламной, о мероприятиях/товарах/услугах/работах Оператора.</p>
+    <p>Настоящее согласие действует до момента его отзыва путем направления соответствующего уведомления на электронный адрес zakaz@izolon-moskva.ru. В случае отзыва мною согласия на обработку персональных данных Оператор вправе продолжить обработку персональных данных без моего согласия при наличии оснований, указанных в пунктах 2 – 11 части 1 статьи 6, части 2 статьи 10 и части 2 статьи 11 Федерального закона №152-ФЗ «О персональных данных» от 26.06.2006 г.</p>
+  </div>
+</dialog>
+
+<dialog class="lightbox" id="lightbox">
+  <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
+  <img alt="Сертификат">
+</dialog>
+
+<!-- ══ Иконки (свои, линейные, 24×24) ══ -->
+<svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <symbol id="i-build" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6M9 11h.01M15 11h.01"/></symbol>
+  <symbol id="i-shoe" viewBox="0 0 24 24"><path d="M3 17V7h5l1 4 5 1.5c4 1.2 7 2.3 7 4.5v1H3zM3 20h18M8 11h2M9.5 13.5h2"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 9V3h10v6M7 17H4v-7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v7h-3M7 14h10v7H7z"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16H3v-4l2-5h11l3 5h2v4h-2M9 16h6M3 12h18"/><circle cx="7" cy="16.5" r="2"/><circle cx="17" cy="16.5" r="2"/></symbol>
+  <symbol id="i-sport" viewBox="0 0 24 24"><path d="M6 7v10M3 9.5v5M18 7v10M21 9.5v5M6 12h12"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10M17 21V3c-2.2 1-3.5 3.5-3.5 7v3H17"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></symbol>
+  <symbol id="i-stock" viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13M7 21v-8h10v8M7 17h10"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-factory" viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V5h4l1 16M3 21h18M7 17h2M12 17h2"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M12 13v3l2 1"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 9h4l3 3.5V16h-7"/><circle cx="6" cy="17.5" r="2"/><circle cx="17" cy="17.5" r="2"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><rect x="3" y="13" width="7" height="7" rx="1"/><rect x="12" y="5" width="9" height="15" rx="1"/><path d="M3 20h18"/></symbol>
+  <symbol id="i-form" viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h5"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5zM3 7.5 12 12l9-4.5M12 12v9"/></symbol>
+</svg>
 
 <script>
   const b=document.querySelector('.burger'),h=document.querySelector('.header');
   b.addEventListener('click',()=>{const o=h.classList.toggle('is-open');b.setAttribute('aria-expanded',o)});
+  h.querySelectorAll('.drawer a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('is-open');b.setAttribute('aria-expanded',false)}));
+
+  // Модальные окна: [data-order] — «Узнать цены» с выбранным товаром, [data-modal] — по имени
+  const open = id => { const d = document.getElementById('modal-' + id) || document.getElementById(id); if (!d) return; document.querySelectorAll('dialog[open]').forEach(x => x !== d && id !== 'consent' && x.close()); d.showModal(); };
+  document.addEventListener('click', e => {
+    const o = e.target.closest('[data-order]');
+    if (o) { e.preventDefault(); const sel = document.querySelector('#modal-order select'); sel.value = o.dataset.order || ''; if (sel.selectedIndex < 0) sel.value = ''; open('order'); return; }
+    const m = e.target.closest('[data-modal]');
+    if (m) { e.preventDefault(); open(m.dataset.modal); return; }
+    if (e.target.closest('[data-close]') || e.target.tagName === 'DIALOG') { e.target.closest('dialog').close(); return; }
+    const l = e.target.closest('[data-lightbox]');
+    if (l) { e.preventDefault(); const lb = document.getElementById('lightbox'); lb.querySelector('img').src = l.href; lb.showModal(); }
+  });
+  // Прототип: формы никуда не отправляются, показываем «спасибо»
+  document.querySelectorAll('[data-form]').forEach(f => f.addEventListener('submit', e => { e.preventDefault(); f.reset(); open('success'); }));
 
   // Слайдер первого экрана
   (async () => {

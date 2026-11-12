@@ -284,3 +284,220 @@ img { display: block; max-width: 100%; }
   .logo__icon { width: 20px; }
   .hero__title { font-size: 36px; }
 }
+
+/* ════════════ Блоки после первого экрана ════════════ */
+.sprite { display: none; }
+.sec { padding: 120px 0; }
+.sec--ink { position: relative; background: var(--ink); color: var(--white); padding-top: 0; }
+.sec--ink > .cut__layers { margin-bottom: 104px; }
+.sec__title {
+  margin: 0 0 56px; max-width: 920px;
+  font-weight: 700; font-size: clamp(32px, 3.4vw, 50px); line-height: 1.06; letter-spacing: -.03em;
+}
+.pill { border: 0; cursor: pointer; }
+.pill--line-light { border: 1.5px solid var(--line-dark); color: var(--white); background: transparent; }
+.pill--line-light:hover { border-color: var(--white); }
+
+/* Фото-плейсхолдер: пока нет сгенерированного файла — подложка с именем файла */
+.ph { position: relative; margin: 0; overflow: hidden; background: #E9ECF3; }
+.ph img { width: 100%; height: 100%; object-fit: cover; }
+.ph.is-empty img { display: none; }
+.ph.is-empty::after {
+  content: "фото: " attr(data-file); position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; text-align: center;
+  font-size: 13px; color: var(--muted);
+  background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(69,87,164,.06) 14px 15px);
+}
+.sec--ink .ph, .card--help .ph { background: var(--ink-2); }
+.sec--ink .ph.is-empty::after, .card--help .ph.is-empty::after { color: var(--on-dark-2); background: repeating-linear-gradient(135deg, transparent 0 14px, rgba(255,255,255,.04) 14px 15px); }
+
+/* ── Применение ── */
+.usage { background: var(--white); }
+.usage__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.usage__media { aspect-ratio: 1; border-radius: 20px; }
+.usage__list { list-style: none; margin: 0; padding: 0; counter-reset: u; }
+.usage__list li {
+  counter-increment: u; display: grid; grid-template-columns: 56px 1fr; align-items: baseline;
+  padding: 20px 0; border-top: 1px solid var(--line); font-size: 19px; line-height: 1.4; font-weight: 500;
+}
+.usage__list li:last-child { border-bottom: 1px solid var(--line); }
+.usage__list li::before { content: counter(u, decimal-leading-zero); font-size: 14px; font-weight: 600; color: var(--brand); font-variant-numeric: tabular-nums; }
+
+
+.fields__icons { list-style: none; margin: 0 0 64px; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark); border-radius: 16px; overflow: hidden; }
+.fields__icons li { display: flex; flex-direction: column; gap: 18px; padding: 28px 22px 26px; background: var(--ink); font-size: 15.5px; line-height: 1.35; font-weight: 500; }
+
+.fields__icons svg, .benefit > svg, .steps__list svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.fields__icons svg { color: var(--accent); }
+.fields__list { list-style: none; margin: 0; padding: 0; columns: 3; column-gap: 56px; }
+.fields__list li { break-inside: avoid; padding: 12px 0 12px 22px; position: relative; font-size: 16px; line-height: 1.45; color: var(--on-dark); }
+.fields__list li::before { content: ""; position: absolute; left: 0; top: 21px; width: 10px; height: 3px; background: var(--brand); }
+.fields__list li::first-letter { text-transform: uppercase; }
+
+/* ── Каталог: одна сетка карточек ── */
+.catalog__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card { display: flex; flex-direction: column; padding: 14px 14px 26px; background: var(--white); border-radius: 20px; }
+.card__media { aspect-ratio: 4 / 3; border-radius: 12px; background: #EDEFF4; }
+.card__media.is-old img { object-fit: contain; background: var(--white); } /* фото со старого сайта, временно */
+.card__title { margin: 24px 12px 18px; font-size: 23px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.card__title span { display: block; margin-top: 4px; font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.card__specs { margin: 0 12px; flex: 1; }
+.card__specs div { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-top: 1px solid var(--line); font-size: 14.5px; line-height: 1.35; }
+.card__specs dt { color: var(--muted); }
+.card__specs dd { margin: 0; text-align: right; font-weight: 500; font-variant-numeric: lining-nums; }
+.card__foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 22px 12px 0; }
+.card__price { margin: 0; font-size: 32px; font-weight: 700; letter-spacing: -.03em; line-height: 1; white-space: nowrap; font-variant-numeric: lining-nums; }
+.card__price span { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+.card__price small { font-size: 15px; font-weight: 600; letter-spacing: 0; }
+.card__note { margin: 12px 12px 0; font-size: 13px; color: var(--muted); }
+
+.card--help { background: var(--ink); color: var(--white); }
+.card--help .card__title { font-size: 19px; font-weight: 600; line-height: 1.35; letter-spacing: -.01em; }
+.card--help .form { margin: 0 12px; }
+.card__call { margin: 18px 12px 0; font-size: 14px; color: var(--on-dark-2); }
+.card__call a { display: block; margin-top: 4px; font-size: 20px; font-weight: 700; color: var(--white); }
+
+/* ── Формы ── */
+.form { display: grid; gap: 10px; }
+.field {
+  width: 100%; height: 52px; padding: 0 18px; border-radius: 12px; border: 1.5px solid var(--line);
+  font: 500 16px/1 "Onest", sans-serif; color: var(--ink); background: var(--white); outline: none; transition: border-color .2s;
+}
+.field:focus { border-color: var(--brand); }
+select.field { appearance: none; padding-right: 44px; background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23141A3D' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat right 16px center / 16px; }
+.form .pill { height: 52px; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; line-height: 1.4; color: var(--muted); cursor: pointer; }
+.check input { width: 16px; height: 16px; margin: 1px 0 0; flex-shrink: 0; accent-color: var(--brand); }
+.check a { text-decoration: underline; text-underline-offset: 2px; }
+.card--help .check { color: var(--on-dark-2); }
+.card--help .field, .discount .field { border-color: transparent; }
+
+/* ── Сертификаты ── */
+.certs { padding-top: 0; }
+.certs__row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+.certs__row a { display: block; padding: 12px; background: var(--white); border-radius: 14px; transition: transform .25s, box-shadow .25s; }
+.certs__row a:hover { transform: translateY(-4px); box-shadow: 0 18px 36px -18px rgba(20,26,61,.35); }
+.certs__row img { width: 100%; height: auto; aspect-ratio: 450 / 640; object-fit: cover; border-radius: 4px; }
+
+/* ── Преимущества: фото 2×2 + 8 карточек ── */
+.benefits { background: var(--white); }
+.benefits__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.benefits__media { grid-column: span 2; grid-row: span 2; border-radius: 20px; min-height: 420px; }
+.benefit { display: flex; flex-direction: column; gap: 18px; padding: 26px 24px; background: var(--bg); border-radius: 20px; }
+.benefit > svg { color: var(--brand); }
+.benefit p { margin: 0; font-size: 17px; line-height: 1.4; font-weight: 500; }
+.benefit p::first-letter { text-transform: uppercase; }
+.benefit__link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding: 0; border: 0; background: none; cursor: pointer;
+  font: 600 15px/1 "Onest", sans-serif; color: var(--brand);
+}
+.benefit__link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── Этапы ── */
+.steps { padding-bottom: 120px; }
+.steps__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+.steps__head .sec__title { margin-bottom: 40px; }
+.steps__media { aspect-ratio: 3 / 2; border-radius: 20px; }
+.steps__list { list-style: none; margin: 0; padding: 0; }
+.steps__list li { display: grid; grid-template-columns: 64px 44px 1fr; align-items: center; gap: 12px; padding: 26px 0; border-top: 1px solid var(--line-dark); }
+.steps__list li:last-child { border-bottom: 1px solid var(--line-dark); }
+.steps__num { font-size: 44px; font-weight: 700; letter-spacing: -.04em; line-height: 1; color: var(--accent); font-variant-numeric: lining-nums; }
+.steps__list svg { color: var(--on-dark-2); }
+.steps__list p { margin: 0; font-size: 19px; line-height: 1.4; font-weight: 500; }
+.steps__cta { margin-top: 40px; }
+
+/* ── Скидка ── */
+.discount { padding-bottom: 0; }
+.discount__box { display: grid; grid-template-columns: 1fr 1.15fr; gap: 56px; align-items: center; padding: 64px; border-radius: 28px; background: var(--brand); color: var(--white); }
+.discount__box .sec__title { margin-bottom: 14px; }
+.discount__sub { margin: 0; font-size: 20px; color: rgba(255,255,255,.85); }
+.discount__call { margin: 36px 0 0; font-size: 14px; color: rgba(255,255,255,.7); }
+.discount__call a { display: block; margin-top: 4px; font-size: 24px; font-weight: 700; color: var(--white); }
+.form--grid { grid-template-columns: 1fr 1fr; }
+.form--grid .check { grid-column: 1 / -1; color: rgba(255,255,255,.75); }
+.discount .check input { accent-color: var(--accent); }
+
+/* ── Контакты ── */
+.contacts__grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 56px; align-items: stretch; }
+.contacts__list { list-style: none; margin: 0; padding: 0; }
+.contacts__list li { display: flex; flex-direction: column; gap: 6px; padding: 20px 0; border-top: 1px solid var(--line); font-size: 20px; font-weight: 600; }
+.contacts__list span { font-size: 13px; font-weight: 500; color: var(--muted); }
+.contacts__map { min-height: 420px; border-radius: 20px; overflow: hidden; background: #E9ECF3; }
+.contacts__map iframe { width: 100%; height: 100%; min-height: 420px; border: 0; display: block; }
+
+/* ── Подвал ── */
+.footer { background: var(--ink); color: var(--white); padding: 56px 0 40px; }
+.footer__row { display: flex; align-items: center; gap: 40px; padding-bottom: 36px; border-bottom: 1px solid var(--line-dark); }
+.logo--light { color: var(--white); }
+.footer__contacts { display: flex; gap: 32px; margin-left: auto; font-weight: 600; }
+.footer__seo { columns: 3; column-gap: 40px; padding: 32px 0; font-size: 13px; line-height: 1.6; color: var(--on-dark-2); }
+.footer__seo p { margin: 0 0 12px; break-inside: avoid; }
+.footer__copy { margin: 0; font-size: 13px; color: var(--on-dark-2); }
+
+/* ── Модальные окна ── */
+.modal, .lightbox { border: 0; padding: 0; color: var(--ink); }
+.modal { width: min(440px, calc(100% - 32px)); padding: 44px 36px 32px; border-radius: 24px; background: var(--white); }
+.modal--text { width: min(720px, calc(100% - 32px)); }
+.modal::backdrop, .lightbox::backdrop { background: rgba(20,26,61,.7); backdrop-filter: blur(3px); }
+.modal__title { margin: 0 0 24px; padding-right: 32px; font-size: 26px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.modal__foot { margin: 20px 0 0; font-size: 14px; color: var(--muted); }
+.modal__body { max-height: 60vh; overflow: auto; font-size: 14px; line-height: 1.6; color: var(--muted); }
+.modal__close {
+  position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border: 0; border-radius: 50%;
+  background: var(--bg); color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer;
+}
+.lightbox { background: transparent; max-width: min(720px, 92vw); max-height: 92vh; overflow: visible; }
+.lightbox img { max-height: 90vh; width: auto; border-radius: 6px; }
+.lightbox .modal__close { top: -8px; right: -52px; background: var(--white); }
+
+/* ── Адаптив новых блоков ── */
+@media (max-width: 1240px) {
+  .fields__icons { grid-template-columns: repeat(4, 1fr); }
+  .fields__icons li:last-child { grid-column: span 2; } /* 7 отраслей: без пустой ячейки */
+  .certs__row { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 1100px) {
+  .catalog__grid { grid-template-columns: repeat(2, 1fr); }
+  .benefits__grid { grid-template-columns: repeat(2, 1fr); }
+  .benefits__media { min-height: 0; aspect-ratio: 1; grid-row: auto; }
+  .discount__box { grid-template-columns: 1fr; padding: 48px; }
+  .fields__list { columns: 2; }
+  .footer__seo { columns: 2; }
+}
+@media (max-width: 900px) {
+  .sec { padding: 88px 0; }
+  .sec--ink { padding-top: 0; }
+  .sec--ink > .cut__layers { margin-bottom: 72px; }
+  .certs, .discount { padding-top: 0; }
+  .discount { padding-bottom: 0; }
+  .usage__grid, .steps__grid, .contacts__grid { grid-template-columns: 1fr; gap: 40px; }
+  .usage__media { aspect-ratio: 4 / 3; }
+  .footer__row { flex-wrap: wrap; gap: 20px; }
+  .footer__contacts { margin-left: 0; width: 100%; order: 3; }
+}
+@media (max-width: 640px) {
+  .sec { padding: 64px 0; }
+  .sec--ink > .cut__layers { margin-bottom: 56px; }
+  .sec__title { margin-bottom: 32px; font-size: 30px; }
+  .usage__list li { font-size: 17px; grid-template-columns: 44px 1fr; padding: 16px 0; }
+  .fields__icons { grid-template-columns: repeat(2, 1fr); margin-bottom: 40px; }
+  .fields__icons li { padding: 20px 16px; font-size: 14.5px; }
+  .fields__list { columns: 1; }
+  .catalog__grid { grid-template-columns: 1fr; gap: 16px; }
+  .card__title { font-size: 21px; }
+  .certs__row { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .benefits__grid { grid-template-columns: 1fr; gap: 12px; }
+  .benefits__media { grid-column: auto; aspect-ratio: 4 / 3; }
+  .steps__list li { grid-template-columns: 44px 1fr; }
+  .steps__list svg { display: none; }
+  .steps__num { font-size: 34px; }
+  .steps__list p { font-size: 17px; }
+  .steps__cta { width: 100%; }
+  .discount__box { padding: 32px 20px; border-radius: 20px; }
+  .form--grid { grid-template-columns: 1fr; }
+  .contacts__list li { font-size: 18px; }
+  .contacts__map, .contacts__map iframe { min-height: 320px; }
+  .footer__seo { columns: 1; }
+  .footer__contacts { flex-direction: column; gap: 10px; }
+  .lightbox .modal__close { right: 0; top: -52px; }
+  .modal { padding: 40px 20px 24px; }
+}
