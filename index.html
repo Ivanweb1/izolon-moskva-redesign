@@ -661,12 +661,12 @@
   lb.addEventListener('touchstart', e => { lbX = e.touches[0].clientX; }, { passive: true });
   lb.addEventListener('touchend', e => { if (lbX === null || lbList.length < 2) return; const dx = e.changedTouches[0].clientX - lbX; lbX = null; if (Math.abs(dx) > 40) lbShow(lbCur + (dx < 0 ? 1 : -1)); });
 
-  // ── Каталог: несколько фото на товар. Первое — новое фото, дальше 4 фото со старого сайта ──
+  // ── Каталог: несколько фото на товар. Первое — новое фото, дальше assets/catalog/<товар>-2…5.jpg, пока их нет — фото со старого сайта ──
   document.querySelectorAll('[data-gallery]').forEach(fig => {
     const main = fig.querySelector('img'), key = fig.dataset.gallery;
     const title = fig.closest('.card').querySelector('.card__title').firstChild.textContent.trim();
     const list = [{ src: main.getAttribute('src'), old: false }];
-    for (let n = 1; n <= 4; n++) list.push({ src: `assets/src/old-site/catalog/${key}/${n}.jpg`, old: true });
+    for (let n = 1; n <= 4; n++) list.push({ src: `assets/catalog/${key}-${n + 1}.jpg`, fallback: `assets/src/old-site/catalog/${key}/${n}.jpg`, old: false });
     list.forEach((it, i) => it.alt = `${title} — фото ${i + 1}`);
     let cur = 0;
     const thumbs = document.createElement('div'); thumbs.className = 'card__thumbs';
@@ -678,8 +678,12 @@
     const btns = list.map((it, i) => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'card__thumb' + (i ? '' : ' is-on');
       b.setAttribute('aria-label', 'Фото ' + (i + 1));
-      b.innerHTML = `<img src="${it.src}" alt="" loading="lazy">`;
-      b.querySelector('img').onerror = () => { b.remove(); it.dead = true; };
+      b.innerHTML = `<img src="${it.src}" alt="">`;
+      const ti = b.querySelector('img');
+      ti.onerror = () => {
+        if (it.fallback && !it.old) { it.src = it.fallback; it.old = true; ti.src = it.src; if (cur === i) set(i); }
+        else { b.remove(); it.dead = true; }
+      };
       b.addEventListener('click', e => { e.stopPropagation(); set(i); });
       thumbs.append(b); return b;
     });
