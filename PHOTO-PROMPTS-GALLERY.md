@@ -278,11 +278,14 @@ Two tall white rolls of polyethylene foam wallpaper underlay standing upright, o
 
 ## 10 — Вомлекс НПЭ (белый, волнистый)
 
-**10-vomlex-npe-2.jpg** — по `1.jpg` [деталь]
+**10-vomlex-npe-2.jpg** — по `1.jpg` [общий]
+
+Первая версия вышла с ошибкой: торец был нарисован ребристым кругом, а внешний слой — отдельной лентой. Перегенерировать с промптом ниже.
 ```
-Close-up of the spiral end of a white expanded polyethylene foam roll lying on its side, the thin sheet with a fine wavy ribbed surface wound in many layers.
-[деталь]
+One roll of white non-cross-linked expanded polyethylene foam lying on its side, seen at a 3/4 angle from the end. The flat end face of the roll shows a smooth tight spiral of many thin sheet layers (each layer 2–3 mm) around a round hollow core — the end face is flat and evenly layered, with no ribs, waves or grooves on it. The fine wavy ribbed texture is only on the outer cylindrical surface of the roll, ribs running around the roll. The outer sheet continues from the roll as one piece and lies flat toward the camera; it is the same sheet, not a separate band. The roll occupies 60% of the frame width.
+[каталог]
 ```
+**Негатив добавить:** ribbed end face, wavy end face, grooves on the end face, concentric ridges, separate band, second roll, flat disc, ribbon around the roll, melted texture.
 
 **10-vomlex-npe-3.jpg** — по `2.jpg` [общий]
 ```
