@@ -109,7 +109,7 @@ document.querySelectorAll('[data-gallery]').forEach(fig => {
   if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
   const groups = ['.sec__title', '.usage__list li', '.usage__media', '.fields__icons li', '.fields__list li', '.catalog__grid .card', '.lead__body', '.lead__visual',
     '.certs__row a', '.benefits__band', '.benefit', '.steps__media', '.steps__list li', '.steps__cta', '.discount__box', '.contacts__info', '.contacts__map', '.seo__grid',
-    '.spheres__grid', '.build-intro__text', '.build-gallery__item', '.use-card', '.quality__box'];
+    '.spheres__grid', '.build-intro__text', '.build-gallery__item', '.use-row', '.quality__box'];
   const els = [];
   groups.forEach(sel => document.querySelectorAll(sel).forEach(el => {
     const sib = [...el.parentNode.children].filter(x => x.matches(sel));

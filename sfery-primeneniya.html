@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=23">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -68,7 +68,8 @@
 
 <main>
   <section class="page-hero">
-    <svg class="rings page-hero__rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" class="r1"/><circle cx="100" cy="100" r="88" class="r2"/><circle cx="100" cy="100" r="81" class="r3"/><circle cx="100" cy="100" r="75" class="r4"/></svg>
+    <!-- Визуализация справа: assets/photos/page-spheres.jpg 16:9 (промпт в PHOTO-PROMPTS-PAGES.md). Пока файла нет — временное фото -->
+    <figure class="ph page-hero__media" data-file="photos/page-spheres.jpg"><img src="assets/photos/page-spheres.jpg" data-fallback="assets/hero-1.jpg" alt="Сшитый пенополиэтилен в разных отраслях: авто, обувь, трубы, спорт, упаковка, ложементы" onerror="ph(this)"></figure>
     <div class="container page-hero__body">
       <nav aria-label="Хлебные крошки"><ol class="crumbs"><li><a href="index.html">Главная</a></li><li aria-current="page">Сферы применения</li></ol></nav>
       <h1 class="page-hero__title">Сферы применения</h1>

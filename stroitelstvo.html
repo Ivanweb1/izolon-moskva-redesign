@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=23">
 <script>
   // Нет нового фото — подставить фото со старого сайта (data-fallback) или показать заглушку с именем файла
   function ph(i){var f=i.dataset.fallback;if(f&&i.getAttribute('src')!==f){i.src=f;i.parentNode.classList.add('is-old')}else{i.onerror=null;i.parentNode.classList.add('is-empty')}}
@@ -68,7 +68,8 @@
 
 <main>
   <section class="page-hero">
-    <svg class="rings page-hero__rings" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96" class="r1"/><circle cx="100" cy="100" r="88" class="r2"/><circle cx="100" cy="100" r="81" class="r3"/><circle cx="100" cy="100" r="75" class="r4"/></svg>
+    <!-- Визуализация справа: assets/photos/page-stroitelstvo.jpg 16:9 (промпт в PHOTO-PROMPTS-PAGES.md). Пока файла нет — временное фото -->
+    <figure class="ph page-hero__media" data-file="photos/page-stroitelstvo.jpg"><img src="assets/photos/page-stroitelstvo.jpg" data-fallback="assets/photos/usage-house.jpg" alt="Изолон в конструкции дома: пол, стены, кровля, трубы" onerror="ph(this)"></figure>
     <div class="container page-hero__body">
       <nav aria-label="Хлебные крошки"><ol class="crumbs"><li><a href="index.html">Главная</a></li><li><a href="sfery-primeneniya.html">Сферы применения</a></li><li aria-current="page">Изолон для строительства</li></ol></nav>
       <h1 class="page-hero__title">Изолон для строительства</h1>
@@ -84,18 +85,18 @@
       <div class="build-intro__text">
         <p class="build-intro__lead"><b>«ИЗОЛОН»</b> — современный экологичный изоляционный материал российского производства для строительства на основе сшитого пенополиэтилена (ППЭ). Однородная мелкоячеистая структура с замкнутыми порами придаёт ему следующие свойства:</p>
         <ul class="props">
-          <li>высокая механическая прочность</li>
-          <li>низкая теплопроводность</li>
-          <li>устойчивость к химическим и биологическим факторам</li>
-          <li>влагостойкость</li>
-          <li>широкий диапазон рабочих температур</li>
-          <li>долговечность</li>
-          <li>лёгкий вес, удобство в монтаже и эксплуатации</li>
+          <li>Высокая механическая прочность</li>
+          <li>Низкая теплопроводность</li>
+          <li>Устойчивость к химическим и биологическим факторам</li>
+          <li>Влагостойкость</li>
+          <li>Широкий диапазон рабочих температур</li>
+          <li>Долговечность</li>
+          <li>Лёгкий вес, удобство в монтаже и эксплуатации</li>
         </ul>
         <p class="build-intro__note">При всех достоинствах изолон обладает доступной стоимостью, что делает его универсальным материалом при строительстве любых объектов.</p>
         <div class="build-intro__actions">
-          <button class="pill pill--ink" type="button" data-modal="callback">Заказать звонок</button>
           <a class="build-intro__price" href="index.html#catalog">Изолон ППЭ <b>от 177 руб/м²</b></a>
+          <button class="pill pill--ink" type="button" data-modal="callback">Заказать звонок</button>
         </div>
       </div>
       <div class="build-gallery">
@@ -112,36 +113,51 @@
     <div class="container">
       <h2 class="sec__title">Применение изолона в строительстве</h2>
       <p class="build-uses__intro">Изолон относится к числу инновационных материалов, востребованных в разных областях человеческой деятельности. Роль его в современном строительстве и ремонте сложно переоценить. Вот лишь некоторые возможные способы применения:</p>
-      <ol class="build-uses__grid">
-        <li class="use-card">
-          <span class="use-card__num">1</span>
-          <svg><use href="#i-floor"/></svg>
-          <h3 class="use-card__title">Подложка для пола</h3>
-          <p>Изолон используется при строительстве и ремонте в качестве подложки под наливной пол, выполняя одновременно функции гидро-, шумо- и теплоизоляции. Фольгированный изолон хорошо укладывать под тёплый пол в качестве отражающего покрытия, чтобы повысить эффективность нагревательного оборудования.</p>
+      <ol class="build-uses__list">
+        <li class="use-row">
+          <div class="use-row__head">
+            <span class="use-row__num">01</span>
+            <svg><use href="#i-floor"/></svg>
+            <h3 class="use-row__title">Подложка для пола</h3>
+            <ul class="use-row__tags"><li>гидроизоляция</li><li>шумоизоляция</li><li>теплоизоляция</li><li>под тёплый пол</li></ul>
+          </div>
+          <p class="use-row__text">Изолон используется при строительстве и ремонте <b>в качестве подложки под наливной пол</b>, выполняя одновременно функции гидро-, шумо- и теплоизоляции. <b>Фольгированный изолон хорошо укладывать под тёплый пол</b> в качестве отражающего покрытия, чтобы повысить эффективность нагревательного оборудования.</p>
         </li>
-        <li class="use-card">
-          <span class="use-card__num">2</span>
-          <svg><use href="#i-wall"/></svg>
-          <h3 class="use-card__title">Изоляция стен и потолков</h3>
-          <p>Широкий ассортимент изолона по толщине и типоразмерам позволяет использовать его при отделке стен и потолков для улучшения тепло- и шумоизоляционных свойств. Благодаря небольшой толщине материала жертвовать полезной площадью помещения не придётся.</p>
+        <li class="use-row">
+          <div class="use-row__head">
+            <span class="use-row__num">02</span>
+            <svg><use href="#i-wall"/></svg>
+            <h3 class="use-row__title">Изоляция стен и потолков</h3>
+            <ul class="use-row__tags"><li>теплоизоляция</li><li>шумоизоляция</li><li>сохраняет площадь</li></ul>
+          </div>
+          <p class="use-row__text">Широкий ассортимент изолона по толщине и типоразмерам позволяет использовать его <b>при отделке стен и потолков</b> для улучшения тепло- и шумоизоляционных свойств. <b>Благодаря небольшой толщине материала жертвовать полезной площадью помещения не придётся.</b></p>
         </li>
-        <li class="use-card">
-          <span class="use-card__num">3</span>
-          <svg><use href="#i-roof"/></svg>
-          <h3 class="use-card__title">Кровельные работы</h3>
-          <p>В кровельном пироге изолон выполняет функции паро-, гидро-, шумо- и теплоизоляции, сокращая время и финансовые затраты на строительство кровли. Он обеспечит комфорт в доме на долгие годы.</p>
+        <li class="use-row">
+          <div class="use-row__head">
+            <span class="use-row__num">03</span>
+            <svg><use href="#i-roof"/></svg>
+            <h3 class="use-row__title">Кровельные работы</h3>
+            <ul class="use-row__tags"><li>пароизоляция</li><li>гидроизоляция</li><li>шумоизоляция</li><li>теплоизоляция</li></ul>
+          </div>
+          <p class="use-row__text">В кровельном пироге изолон выполняет функции паро-, гидро-, шумо- и теплоизоляции, <b>сокращая время и финансовые затраты на строительство кровли.</b> Он обеспечит комфорт в доме на долгие годы.</p>
         </li>
-        <li class="use-card">
-          <span class="use-card__num">4</span>
-          <svg><use href="#i-pipe"/></svg>
-          <h3 class="use-card__title">Изоляция трубопроводов</h3>
-          <p>В условиях российского нестабильного климата приходится защищать трубопроводы инженерных коммуникаций и от высоких, и от низких температур. Изолон не только поможет сохранить стабильную температуру внутри труб, но и защитит их от внешних механических воздействий. Кроме того, он продлит срок эксплуатации трубопровода.</p>
+        <li class="use-row">
+          <div class="use-row__head">
+            <span class="use-row__num">04</span>
+            <svg><use href="#i-pipe"/></svg>
+            <h3 class="use-row__title">Изоляция трубопроводов</h3>
+            <ul class="use-row__tags"><li>стабильная температура</li><li>защита от повреждений</li><li>долгий срок службы</li></ul>
+          </div>
+          <p class="use-row__text">В условиях российского нестабильного климата приходится защищать трубопроводы инженерных коммуникаций и от высоких, и от низких температур. Изолон не только <b>поможет сохранить стабильную температуру внутри труб</b>, но и <b>защитит их от внешних механических воздействий.</b> Кроме того, он продлит срок эксплуатации трубопровода.</p>
         </li>
-        <li class="use-card">
-          <span class="use-card__num">5</span>
-          <svg><use href="#i-window"/></svg>
-          <h3 class="use-card__title">Уплотнение стыков</h3>
-          <p>Эластичность и упругость позволяют использовать изолон для уплотнения оконных и дверных стыков.</p>
+        <li class="use-row">
+          <div class="use-row__head">
+            <span class="use-row__num">05</span>
+            <svg><use href="#i-window"/></svg>
+            <h3 class="use-row__title">Уплотнение стыков</h3>
+            <ul class="use-row__tags"><li>окна</li><li>двери</li></ul>
+          </div>
+          <p class="use-row__text"><b>Эластичность и упругость</b> позволяют использовать изолон для уплотнения оконных и дверных стыков.</p>
         </li>
       </ol>
     </div>
@@ -151,9 +167,18 @@
   <section class="sec quality">
     <div class="container">
       <div class="quality__box">
-        <svg class="quality__icon"><use href="#i-shield"/></svg>
-        <p>Наша компания гарантирует высокое качество продуктов на основе сшитых пенополиэтиленов благодаря использованию качественного сырья, оснащению собственного производственного комплекса высокоточным оборудованием и системе технического контроля.</p>
-        <a class="pill pill--ink" href="index.html#catalog">Смотреть каталог</a>
+        <div class="quality__head">
+          <div>
+            <h2 class="quality__title">Гарантия качества</h2>
+            <p class="quality__lead">Наша компания гарантирует высокое качество продуктов на основе сшитых пенополиэтиленов благодаря:</p>
+          </div>
+          <a class="pill pill--ink" href="index.html#catalog">Смотреть каталог</a>
+        </div>
+        <ul class="quality__list">
+          <li><svg><use href="#i-stock"/></svg><span>использованию качественного сырья</span></li>
+          <li><svg><use href="#i-factory"/></svg><span>собственному производственному комплексу с&nbsp;высокоточным оборудованием</span></li>
+          <li><svg><use href="#i-shield"/></svg><span>системе технического контроля</span></li>
+        </ul>
       </div>
     </div>
   </section>
