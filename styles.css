@@ -65,7 +65,7 @@ img { display: block; max-width: 100%; }
 /* меню по центру между логотипом и телефоном: равные авто-отступы с двух сторон */
 .hnav { display: flex; gap: 30px; margin: 0 auto; }
 @media (min-width: 1101px) { .hnav + .header__contacts { margin-left: 0; } }
-.hnav a { font-size: 15.5px; font-weight: 500; color: var(--ink); transition: color .2s; }
+.hnav a { white-space: nowrap; font-size: 15.5px; font-weight: 500; color: var(--ink); transition: color .2s; }
 .hnav a:hover { color: var(--brand); }
 
 .header__contacts { display: flex; align-items: center; gap: 20px; flex-shrink: 0; margin-left: auto; }
@@ -682,4 +682,129 @@ select.field { appearance: none; padding-right: 44px; background: var(--white) u
   .to-top { right: 16px; bottom: calc(84px + env(safe-area-inset-bottom)); width: 50px; height: 50px; }
   .rings--discount { width: 340px; height: 340px; right: -150px; top: -150px; }
   .rings--lead { width: 200px; height: 200px; right: -60px; top: -60px; }
+}
+
+/* ════════════ Внутренние страницы: «Сферы применения», «Изолон для строительства» ════════════ */
+.hnav a[aria-current="page"], .drawer__nav a[aria-current="page"] { color: var(--brand); }
+.fields__more { margin-top: 48px; }
+
+/* Первый экран подстраницы: тёмный, без фото, кольца «торца рулона» справа, «срез» снизу */
+.page-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--ink); color: var(--white); }
+.page-hero__body { position: relative; padding-top: 56px; padding-bottom: 96px; }
+.page-hero__title { max-width: 900px; margin: 28px 0 0; font-weight: 700; font-size: clamp(42px, 5.4vw, 80px); line-height: .98; letter-spacing: -.035em; }
+.page-hero__lead { max-width: 640px; margin: 28px 0 0; font-size: 19px; line-height: 1.55; color: var(--on-dark); }
+.page-hero__actions { margin-top: 40px; }
+.page-hero__rings { position: absolute; z-index: -1; width: 560px; height: 560px; right: -120px; top: 50%; transform: translateY(-50%); opacity: .7; }
+.page-hero__cut { position: relative; }
+button.hero__link { background: none; border-top: 0; border-left: 0; border-right: 0; cursor: pointer; font-family: inherit; }
+
+.crumbs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 0; font-size: 14px; color: var(--on-dark-2); }
+.crumbs li + li::before { content: "/"; margin: 0 10px; opacity: .6; }
+.crumbs a { transition: color .2s; }
+.crumbs a:hover { color: var(--white); }
+.crumbs [aria-current] { color: var(--on-dark); }
+
+/* Отрасли: 4 колонки, «Строительство» — широкая карточка с фото */
+.spheres { background: var(--white); }
+.spheres__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.sphere {
+  position: relative; display: flex; flex-direction: column; overflow: hidden; text-align: left;
+  border: 1px solid var(--line); border-radius: 20px; background: var(--bg); color: var(--ink);
+  font: inherit; cursor: pointer; padding: 0; transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+.sphere:hover { border-color: var(--brand); transform: translateY(-4px); box-shadow: 0 18px 40px -24px rgba(20,26,61,.45); }
+.sphere__body { position: relative; flex: 1; display: flex; flex-direction: column; padding: 30px 28px 28px; }
+.sphere__num { position: absolute; top: 28px; right: 28px; font-size: 14px; font-weight: 600; color: var(--muted); font-variant-numeric: tabular-nums; }
+.sphere__icon { width: 56px; height: 56px; padding: 12px; border-radius: 16px; background: var(--ink); color: var(--accent); fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.sphere__title { margin: 28px 0 0; font-size: 21px; line-height: 1.2; font-weight: 700; letter-spacing: -.01em; }
+.sphere__text { margin: 12px 0 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.sphere__go { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; padding-top: 28px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--brand); }
+.sphere .arr { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
+.sphere:hover .arr { transform: translateX(4px); }
+.sphere--wide { grid-column: span 2; flex-direction: row; background: var(--ink); color: var(--white); border-color: var(--ink); }
+.sphere--wide .sphere__media { flex: 0 0 46%; }
+.sphere--wide .sphere__icon { background: var(--accent); color: var(--ink); }
+.sphere--wide .sphere__num { color: var(--on-dark-2); }
+.sphere--wide .sphere__text { color: var(--on-dark); }
+.sphere--wide .sphere__go { color: var(--accent); }
+
+/* Строительство: текст о материале + галерея из 3 фото */
+.build-intro { background: var(--white); }
+.build-intro__grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 72px; align-items: start; }
+.build-intro__lead { margin: 0; font-size: 20px; line-height: 1.55; }
+.build-intro__lead b { color: var(--brand); }
+.props { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.props li { position: relative; padding: 16px 18px 16px 50px; border-radius: 14px; background: var(--bg); font-size: 15.5px; line-height: 1.4; font-weight: 500; }
+.props li::first-letter { text-transform: uppercase; }
+.props li::before { content: ""; position: absolute; left: 18px; top: 17px; width: 20px; height: 20px; border-radius: 50%; background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' fill='none' stroke='%23141A3D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.props li:last-child:nth-child(odd) { grid-column: 1 / -1; }
+.build-intro__note { margin: 32px 0 0; font-size: 17px; line-height: 1.6; color: var(--muted); }
+.build-intro__actions { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; margin-top: 36px; }
+.build-intro__price { font-size: 15px; color: var(--muted); }
+.build-intro__price b { display: block; margin-top: 2px; font-size: 22px; color: var(--ink); }
+.build-gallery { position: sticky; top: calc(var(--header-h) + 24px); display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.build-gallery__item { border-radius: 20px; aspect-ratio: 4 / 3; cursor: zoom-in; }
+.build-gallery__item:first-child { grid-column: 1 / -1; aspect-ratio: 1; }
+.build-gallery__item img { transition: transform .5s; }
+.build-gallery__item:hover img { transform: scale(1.04); }
+
+/* Способы применения: 3 + 2 карточки на тёмном */
+.build-uses__intro { max-width: 820px; margin: 0 0 56px; font-size: 18px; line-height: 1.6; color: var(--on-dark); }
+.build-uses__grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line-dark); border: 1px solid var(--line-dark); border-radius: 20px; overflow: hidden; }
+.use-card { grid-column: span 2; position: relative; display: flex; flex-direction: column; padding: 36px 32px 38px; background: var(--ink); }
+.use-card:nth-child(n+4) { grid-column: span 3; }
+.use-card svg { width: 48px; height: 48px; fill: none; stroke: var(--accent); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.use-card__num { position: absolute; top: 32px; right: 32px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid var(--line-dark); font-size: 14px; font-weight: 700; color: var(--on-dark); }
+.use-card__title { margin: 28px 0 0; font-size: 22px; line-height: 1.2; font-weight: 700; }
+.use-card p { margin: 14px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--on-dark); }
+
+/* Гарантия качества */
+.quality { padding-bottom: 0; }
+.quality__box { display: grid; grid-template-columns: auto 1fr auto; gap: 36px; align-items: center; padding: 44px 48px; border-radius: 24px; background: var(--white); border: 1px solid var(--line); }
+.quality__icon { width: 64px; height: 64px; padding: 14px; border-radius: 18px; background: var(--brand); color: var(--white); fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.quality__box p { margin: 0; font-size: 18px; line-height: 1.6; }
+
+@media (max-width: 1240px) {
+  .spheres__grid { grid-template-columns: repeat(3, 1fr); }
+  .sphere--wide { grid-column: 1 / -1; }
+  .sphere--wide .sphere__media { flex-basis: 50%; }
+}
+@media (max-width: 1100px) {
+  .build-intro__grid { grid-template-columns: 1fr; gap: 48px; }
+  .build-gallery { position: static; grid-template-columns: repeat(3, 1fr); }
+  .build-gallery__item:first-child { grid-column: auto; aspect-ratio: 4 / 3; }
+  .build-uses__grid { grid-template-columns: 1fr 1fr; }
+  .use-card, .use-card:nth-child(n+4) { grid-column: auto; }
+  .use-card:last-child { grid-column: 1 / -1; }
+  .page-hero__rings { width: 420px; height: 420px; right: -180px; opacity: .45; }
+}
+@media (max-width: 900px) {
+  .spheres__grid { grid-template-columns: 1fr 1fr; }
+  .sphere--wide { flex-direction: column; }
+  .sphere--wide .sphere__media { flex-basis: auto; aspect-ratio: 16 / 9; }
+  .quality__box { grid-template-columns: auto 1fr; }
+  .quality__box .pill { grid-column: 1 / -1; justify-self: start; }
+}
+@media (max-width: 640px) {
+  .page-hero__body { padding-top: 28px; padding-bottom: 56px; }
+  .page-hero__title { margin-top: 20px; font-size: 38px; }
+  .page-hero__lead { font-size: 16.5px; margin-top: 18px; }
+  .page-hero__rings { width: 300px; height: 300px; right: -170px; top: 30%; }
+  .crumbs { font-size: 13px; }
+  .spheres__grid { grid-template-columns: 1fr; gap: 12px; }
+  .sphere__body { padding: 24px 22px 22px; }
+  .sphere__num { top: 24px; right: 22px; }
+  .sphere__title { margin-top: 20px; font-size: 19px; }
+  .sphere__go { padding-top: 20px; }
+  .build-intro__lead { font-size: 17px; }
+  .props { grid-template-columns: 1fr; }
+  .build-gallery { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .build-gallery__item:first-child { grid-column: 1 / -1; }
+  .build-uses__intro { font-size: 16px; margin-bottom: 36px; }
+  .build-uses__grid { grid-template-columns: 1fr; }
+  .use-card, .use-card:last-child { grid-column: auto; padding: 28px 22px 30px; }
+  .use-card__num { top: 26px; right: 22px; }
+  .use-card__title { font-size: 20px; margin-top: 22px; }
+  .quality__box { grid-template-columns: 1fr; gap: 22px; padding: 28px 22px; }
+  .quality__box p { font-size: 16px; }
 }
